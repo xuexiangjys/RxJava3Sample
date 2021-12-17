@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RxJava3Sample</string>
+    <string name="lab_start">开始</string>
+    <string name="lab_end">结束</string>
+</resources>
