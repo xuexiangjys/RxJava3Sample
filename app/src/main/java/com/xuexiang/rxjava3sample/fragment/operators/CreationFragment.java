@@ -19,6 +19,8 @@ package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.rxjava3sample.fragment.operators.creation.Create;
+import com.xuexiang.rxjava3sample.fragment.operators.creation.Error;
+import com.xuexiang.rxjava3sample.fragment.operators.creation.From;
 import com.xuexiang.rxjava3sample.fragment.operators.creation.Interval;
 import com.xuexiang.rxjava3sample.fragment.operators.creation.Just;
 import com.xuexiang.rxjava3sample.fragment.operators.creation.Timer;
@@ -34,11 +36,13 @@ public class CreationFragment extends BaseContainerFragment {
 
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[] {
+        return new Class[]{
                 Create.class,
                 Just.class,
                 Timer.class,
-                Interval.class
+                Interval.class,
+                From.class,
+                Error.class
         };
     }
 }

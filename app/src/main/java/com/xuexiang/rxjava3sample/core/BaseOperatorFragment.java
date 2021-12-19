@@ -27,8 +27,10 @@ import com.xuexiang.rxjava3sample.databinding.FragmentTemplateBinding;
 import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xui.utils.ViewUtils;
 
+import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 /**
  * 操作符基础类
@@ -72,6 +74,17 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
     protected <T> Disposable doSubscribe(Observable<T> observable) {
         return observable.subscribe(item -> logNormal(item.toString()), error -> logError(error.getMessage()),
                 () -> logSuccess("Completed!"));
+    }
+
+    @NonNull
+    protected <T> Disposable doSubscribe(Observable<T> observable, @NonNull Consumer<? super T> onNext) {
+        return observable.subscribe(onNext, error -> logError(error.getMessage()),
+                () -> logSuccess("Completed!"));
+    }
+
+    @NonNull
+    protected Disposable doSubscribe(Completable completable) {
+        return completable.subscribe(() -> logSuccess("Completed!"), error -> logError(error.getMessage()));
     }
 
     /**
