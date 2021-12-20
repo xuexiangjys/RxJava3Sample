@@ -20,11 +20,10 @@ package com.xuexiang.rxjava3sample.fragment.operators.creation;
 import android.view.View;
 
 import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.utils.ExecutorUtils;
 import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
@@ -40,10 +39,9 @@ import io.reactivex.rxjava3.core.ObservableOnSubscribe;
 @Page(name = "create\n自定义发射器")
 public class Create extends BaseOperatorFragment {
 
-    ScheduledExecutorService executor;
-    ObservableEmitter<String> mEmitter;
+    private ObservableEmitter<String> mEmitter;
 
-    int count = 1;
+    private int mCount = 1;
 
     @Override
     protected String getOperatorInstruction() {
@@ -52,9 +50,7 @@ public class Create extends BaseOperatorFragment {
 
     @Override
     protected void beforeOperation() {
-        if (executor == null) {
-            executor = Executors.newSingleThreadScheduledExecutor();
-        }
+
     }
 
     @Override
@@ -68,10 +64,10 @@ public class Create extends BaseOperatorFragment {
         // 循环发送数据
         ObservableOnSubscribe<String> handler = emitter -> {
             mEmitter = emitter;
-            ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> {
+            ScheduledFuture<?> future = ExecutorUtils.getSingleExecutor().scheduleAtFixedRate(() -> {
                 emitter.onNext("Hello World!");
-                emitter.onNext("This is No." + count);
-                count++;
+                emitter.onNext("This is No." + mCount);
+                mCount++;
             }, 0, 1, TimeUnit.SECONDS);
             emitter.setCancellable(() -> future.cancel(false));
         };
@@ -93,15 +89,6 @@ public class Create extends BaseOperatorFragment {
             mEmitter.onComplete();
             mEmitter = null;
         }
-        count = 1;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        if (executor != null) {
-            executor.shutdown();
-            executor = null;
-        }
+        mCount = 1;
     }
 }
