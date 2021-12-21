@@ -26,6 +26,7 @@ import androidx.annotation.NonNull;
 import com.xuexiang.rxjava3sample.databinding.FragmentTemplateBinding;
 import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xui.utils.ViewUtils;
+import com.xuexiang.xutil.common.StringUtils;
 
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Observable;
@@ -72,7 +73,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
 
     @NonNull
     protected <T> Disposable doSubscribe(Observable<T> observable) {
-        return observable.subscribe(item -> logNormal(item.toString()), error -> logError(error.getMessage()),
+        return observable.subscribe(item -> logNormal(StringUtils.toString(item)), error -> logError(error.getMessage()),
                 () -> logSuccess("Completed!"));
     }
 

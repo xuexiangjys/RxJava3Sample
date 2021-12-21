@@ -29,32 +29,27 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
- * 平铺转换操作
+ * 连续变换操作
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#flatmap
- * <p>
- * FlatMap发出Observables而不是值
+ * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#switchMap
  */
-@Page(name = "flatMap\n平铺转换操作，适用于一对多，多对多的转换")
-public class FlatMap extends BaseOperatorFragment {
-
+@Page(name = "switchMap\n平铺转换操作，与flatMap相比，仅返回最后发出Observable")
+public class SwitchMap extends BaseOperatorFragment {
     @Override
     protected String getOperatorInstruction() {
-        return "flatMap将一个发射数据的Observable变换为多个Observables，然后将它们发射的数据合并后放进一个单独的Observable";
+        return "SwitchMap和flatMap一样可以将源可观察性展平，但仅返回最后发出的单个可观察性。";
     }
 
     @Override
     protected void doOperation(View view) {
         Observable<String> observable = Observable.just(1, 2, 3)
-                .flatMap(x -> {
+                .switchMap(x -> {
                     int delay = x == 2 ? 1 : 0;
-                    logNormal("flatMap:" + x);
+                    logNormal("switchMap:" + x);
                     return Observable.range(x * 10, 3)
                             .map(y -> "项目" + y).delay(delay, TimeUnit.SECONDS);
-                })
-                .subscribeOn(Schedulers.io())
+                }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
-
         doSubscribe(observable);
     }
 }

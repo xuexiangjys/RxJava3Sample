@@ -36,12 +36,12 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * 1.concatMap是有序的，flatMap是无序的。concatMap最终输出的顺序与原序列保持一致，而flatMap则不一定，有可能出现交错。
  * 2.concatMap是按照发射顺序发射的，flatMap是按照执行完毕的顺序发射的。
  */
-@Page(name = "concatMap\n有序平铺转换操作")
+@Page(name = "concatMap\n有序平铺转换操作，与flatMap相比，concatMap是发射有序的")
 public class ConcatMap extends BaseOperatorFragment {
 
     @Override
     protected String getOperatorInstruction() {
-        return "ConcatMap将一个发射数据的Observable变换为多个Observables，然后将它们发射的数据【按发射顺序】合并后放进一个单独的Observable。";
+        return "concatMap和flatMap一样可以将源可观察性展平，唯一不同的是concatMap是有序的，flatMap是无序的。";
     }
 
     @Override

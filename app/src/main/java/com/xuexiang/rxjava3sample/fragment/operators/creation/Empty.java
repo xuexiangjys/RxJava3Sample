@@ -25,38 +25,21 @@ import com.xuexiang.xpage.annotation.Page;
 import io.reactivex.rxjava3.core.Observable;
 
 /**
- * 错误发射器
+ * 空发射器
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#error
+ * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#empty
  */
-@Page(name = "error\n错误发射器")
-public class Error extends BaseOperatorFragment {
-
+@Page(name = "empty\n空发射器")
+public class Empty extends BaseOperatorFragment {
     @Override
     protected String getOperatorInstruction() {
-        return "创建一个不发射数据以一个错误终止的Observable";
+        return "创建一个不发射任何数据但是正常终止的Observable";
     }
 
     @Override
     protected void doOperation(View view) {
-        Observable<String> observable = Observable.fromCallable(() -> {
-            if (Math.random() < 0.5) {
-                throw new Exception("number is less than 0.5!");
-            }
-            throw new IllegalArgumentException("number is illegal!");
-        });
-
-        // 抛出Exception错误，不抛出IllegalArgumentException错误
-        Observable<String> result = observable.onErrorResumeNext(error -> {
-            if (error instanceof IllegalArgumentException) {
-                return Observable.empty();
-            }
-            return Observable.error(error);
-        });
-
-        for (int i = 0; i < 10; i++) {
-            doSubscribe(result, v -> logNormal("This should never be printed!"));
-        }
-
+        Observable<String> empty = Observable.empty();
+        doSubscribe(empty, v -> logNormal("This should never be printed!"));
     }
+
 }

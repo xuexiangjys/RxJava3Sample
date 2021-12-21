@@ -18,9 +18,13 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.transformation.Buffer;
+import com.xuexiang.rxjava3sample.fragment.operators.transformation.Cast;
 import com.xuexiang.rxjava3sample.fragment.operators.transformation.ConcatMap;
 import com.xuexiang.rxjava3sample.fragment.operators.transformation.FlatMap;
 import com.xuexiang.rxjava3sample.fragment.operators.transformation.Map;
+import com.xuexiang.rxjava3sample.fragment.operators.transformation.Scan;
+import com.xuexiang.rxjava3sample.fragment.operators.transformation.SwitchMap;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -35,7 +39,11 @@ public class Transformation extends BaseContainerFragment {
         return new Class[]{
                 Map.class,
                 FlatMap.class,
-                ConcatMap.class
+                ConcatMap.class,
+                SwitchMap.class,
+                Scan.class,
+                Buffer.class,
+                Cast.class
         };
     }
 }

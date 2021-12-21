@@ -32,7 +32,8 @@ public class OperatorsFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[] {
-                CreationFragment.class
+                CreationFragment.class,
+                Transformation.class
         };
     }
 }

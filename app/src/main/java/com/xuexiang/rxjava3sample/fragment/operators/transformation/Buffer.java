@@ -22,39 +22,27 @@ import android.view.View;
 import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
 import com.xuexiang.xpage.annotation.Page;
 
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
- * 平铺转换操作
+ * 缓冲池操作符
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#flatmap
- * <p>
- * FlatMap发出Observables而不是值
+ * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#buffer
  */
-@Page(name = "flatMap\n平铺转换操作，适用于一对多，多对多的转换")
-public class FlatMap extends BaseOperatorFragment {
-
+@Page(name = "buffer\n缓冲池操作符")
+public class Buffer extends BaseOperatorFragment {
     @Override
     protected String getOperatorInstruction() {
-        return "flatMap将一个发射数据的Observable变换为多个Observables，然后将它们发射的数据合并后放进一个单独的Observable";
+        return "定期收集Observable的数据放进一个数据包裹，然后发射这些数据包裹，而不是一次发射一个值。";
     }
 
     @Override
     protected void doOperation(View view) {
-        Observable<String> observable = Observable.just(1, 2, 3)
-                .flatMap(x -> {
-                    int delay = x == 2 ? 1 : 0;
-                    logNormal("flatMap:" + x);
-                    return Observable.range(x * 10, 3)
-                            .map(y -> "项目" + y).delay(delay, TimeUnit.SECONDS);
-                })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-
+        Observable<List<Integer>> observable = Observable.range(0, 10)
+                // 设置缓存大小
+                .buffer(4);
         doSubscribe(observable);
     }
 }
