@@ -15,26 +15,30 @@
  *
  */
 
-package com.xuexiang.rxjava3sample.fragment.operators;
+package com.xuexiang.rxjava3sample.fragment.operators.creation;
 
-import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import android.view.View;
+
+import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
 import com.xuexiang.xpage.annotation.Page;
 
+import io.reactivex.rxjava3.core.Observable;
+
 /**
- * 这个只是一个空壳Fragment，只是用于演示而已
- *
- * @author xuexiang
- * @since 2019-07-08 00:52
+ * 整数序列发射器
+ * <p>
+ * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#range
  */
-@Page(name = "operators(操作符)")
-public class OperatorsFragment extends BaseContainerFragment {
+@Page(name = "range\n整数序列发射器")
+public class Range extends BaseOperatorFragment {
+    @Override
+    protected String getOperatorInstruction() {
+        return "创建一个发射特定整数序列的Observable";
+    }
 
     @Override
-    protected Class[] getPagesClasses() {
-        return new Class[] {
-                CreationFragment.class,
-                Transformation.class,
-                FilteringFragment.class
-        };
+    protected void doOperation(View view) {
+        Observable<Integer> observable = Observable.range(1, 10);
+        doSubscribe(observable);
     }
 }

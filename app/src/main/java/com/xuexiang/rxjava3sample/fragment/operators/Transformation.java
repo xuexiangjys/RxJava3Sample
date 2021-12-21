@@ -22,13 +22,15 @@ import com.xuexiang.rxjava3sample.fragment.operators.transformation.Buffer;
 import com.xuexiang.rxjava3sample.fragment.operators.transformation.Cast;
 import com.xuexiang.rxjava3sample.fragment.operators.transformation.ConcatMap;
 import com.xuexiang.rxjava3sample.fragment.operators.transformation.FlatMap;
+import com.xuexiang.rxjava3sample.fragment.operators.transformation.GroupBy;
 import com.xuexiang.rxjava3sample.fragment.operators.transformation.Map;
 import com.xuexiang.rxjava3sample.fragment.operators.transformation.Scan;
 import com.xuexiang.rxjava3sample.fragment.operators.transformation.SwitchMap;
+import com.xuexiang.rxjava3sample.fragment.operators.transformation.Window;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
- * 变换操作的操作符
+ * 转换类型的操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables
  */
@@ -42,8 +44,10 @@ public class Transformation extends BaseContainerFragment {
                 ConcatMap.class,
                 SwitchMap.class,
                 Scan.class,
+                Cast.class,
+                GroupBy.class,
                 Buffer.class,
-                Cast.class
+                Window.class
         };
     }
 }

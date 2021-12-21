@@ -18,23 +18,27 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.Debounce;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.Filter;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.Take;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.TakeLast;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
- * 这个只是一个空壳Fragment，只是用于演示而已
- *
- * @author xuexiang
- * @since 2019-07-08 00:52
+ * 过滤类型的操作符
+ * <p>
+ * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables
  */
-@Page(name = "operators(操作符)")
-public class OperatorsFragment extends BaseContainerFragment {
+@Page(name = "Filtering(过滤)")
+public class FilteringFragment extends BaseContainerFragment {
 
     @Override
     protected Class[] getPagesClasses() {
         return new Class[] {
-                CreationFragment.class,
-                Transformation.class,
-                FilteringFragment.class
+                Filter.class,
+                Debounce.class,
+                Take.class,
+                TakeLast.class
         };
     }
 }

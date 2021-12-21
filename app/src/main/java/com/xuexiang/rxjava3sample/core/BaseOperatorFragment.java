@@ -31,6 +31,7 @@ import com.xuexiang.xutil.common.StringUtils;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.Consumer;
 
 /**
@@ -81,6 +82,11 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
     protected <T> Disposable doSubscribe(Observable<T> observable, @NonNull Consumer<? super T> onNext) {
         return observable.subscribe(onNext, error -> logError(error.getMessage()),
                 () -> logSuccess("Completed!"));
+    }
+
+    @NonNull
+    protected <T> Disposable doSubscribe(Observable<T> observable, @NonNull Consumer<? super T> onNext, @NonNull Action onComplete) {
+        return observable.subscribe(onNext, error -> logError(error.getMessage()), onComplete);
     }
 
     @NonNull
