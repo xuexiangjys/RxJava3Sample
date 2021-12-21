@@ -5,8 +5,8 @@ RxJava3使用演示
 ## 特别感谢
 
 * [RxDocs](https://github.com/mcxiaoke/RxDocs)
-* [RxJava Wiki](https://github.com/ReactiveX/rxjava/wiki)
 * [中文文档](https://mcxiaoke.gitbooks.io/rxdocs/content/)
+* [RxJava Wiki](https://github.com/ReactiveX/rxjava/wiki)
 
 ## 如果觉得项目还不错，可以考虑打赏一波
 
