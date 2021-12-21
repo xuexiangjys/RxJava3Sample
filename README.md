@@ -8,7 +8,6 @@ RxJava3使用演示
 * [RxJava Wiki](https://github.com/ReactiveX/rxjava/wiki)
 * [中文文档](https://mcxiaoke.gitbooks.io/rxdocs/content/)
 
-
 ## 如果觉得项目还不错，可以考虑打赏一波
 
 > 你的打赏是我维护的动力，我将会列出所有打赏人员的清单在下方作为凭证，打赏前请留下打赏项目的备注！
