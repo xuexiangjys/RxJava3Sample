@@ -18,27 +18,20 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.conditional.Amb;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
- * 这个只是一个空壳Fragment，只是用于演示而已
- *
- * @author xuexiang
- * @since 2019-07-08 00:52
+ * 条件和布尔操作
+ * <p>
+ * https://github.com/ReactiveX/RxJava/wiki/Conditional-and-Boolean-Operators
  */
-@Page(name = "operators(操作符)")
-public class OperatorsFragment extends BaseContainerFragment {
-
+@Page(name = "Conditional & Boolean(条件和布尔操作)")
+public class ConditionalFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[]{
-                CreationFragment.class,
-                Transformation.class,
-                FilteringFragment.class,
-                CombiningFragment.class,
-                ErrorHandlingFragment.class,
-                ObservableUtilityFragment.class,
-                ConditionalFragment.class
+        return new Class[] {
+                Amb.class
         };
     }
 }

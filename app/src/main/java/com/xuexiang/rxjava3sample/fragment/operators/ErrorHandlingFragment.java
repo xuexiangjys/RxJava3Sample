@@ -21,24 +21,16 @@ import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
- * 这个只是一个空壳Fragment，只是用于演示而已
- *
- * @author xuexiang
- * @since 2019-07-08 00:52
+ * 错误处理类型的操作符
+ * <p>
+ * https://github.com/ReactiveX/RxJava/wiki/Error-Handling-Operators
  */
-@Page(name = "operators(操作符)")
-public class OperatorsFragment extends BaseContainerFragment {
-
+@Page(name = "ErrorHandling(错误处理)")
+public class ErrorHandlingFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
-                CreationFragment.class,
-                Transformation.class,
-                FilteringFragment.class,
-                CombiningFragment.class,
-                ErrorHandlingFragment.class,
-                ObservableUtilityFragment.class,
-                ConditionalFragment.class
+
         };
     }
 }

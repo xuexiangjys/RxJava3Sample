@@ -15,7 +15,7 @@
  *
  */
 
-package com.xuexiang.rxjava3sample.fragment.operators.filtering;
+package com.xuexiang.rxjava3sample.fragment.operators.conditional;
 
 import android.view.View;
 
@@ -25,29 +25,24 @@ import com.xuexiang.xpage.annotation.Page;
 import io.reactivex.rxjava3.core.Observable;
 
 /**
- * 跳过开始的N项数据
+ * 首发执行操作符
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#skip
+ * https://github.com/ReactiveX/RxJava/wiki/Conditional-and-Boolean-Operators#amb
  */
-@Page(name = "skip\n跳过开始的N项数据, 和take相反")
-public class Skip extends BaseOperatorFragment {
+@Page(name = "amb\n多个Observable, 只让第一个发射数据的Observable发射全部数据")
+public class Amb extends BaseOperatorFragment {
 
     @Override
     protected String getOperatorInstruction() {
-        return "skip操作符，忽略Observable发射的前N项数据，只保留之后的数据。";
+        return "给定多个Observable，只让第一个发射数据的Observable发射全部数据。";
     }
 
     @Override
     protected void doOperation(View view) {
-        printNormal("发射数组:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
-        Observable<Integer> observable = Observable.range(1, 10);
-
-        printNormal("skip:");
-        // 跳过前面四个
-        doSubscribe(observable.skip(4));
-
-        printNormal("skipWhile:");
-        // 当输出数据x<5时都跳过
-        doSubscribe(observable.skipWhile(x -> x < 5));
+        printNormal("先后发射数组:[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]");
+        Observable<Integer> first = Observable.range(1, 5);
+        Observable<Integer> second = Observable.range(6, 5);
+        Observable<Integer> ambObservable = Observable.ambArray(first, second);
+        doSubscribe(ambObservable);
     }
 }

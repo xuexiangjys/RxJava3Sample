@@ -21,24 +21,17 @@ import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
- * 这个只是一个空壳Fragment，只是用于演示而已
- *
- * @author xuexiang
- * @since 2019-07-08 00:52
+ * 错误处理类型的操作符
+ * <p>
+ * https://github.com/ReactiveX/RxJava/wiki/Observable-Utility-Operators
  */
-@Page(name = "operators(操作符)")
-public class OperatorsFragment extends BaseContainerFragment {
+@Page(name = "Observable Utility(辅助操作)")
+public class ObservableUtilityFragment extends BaseContainerFragment {
 
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[]{
-                CreationFragment.class,
-                Transformation.class,
-                FilteringFragment.class,
-                CombiningFragment.class,
-                ErrorHandlingFragment.class,
-                ObservableUtilityFragment.class,
-                ConditionalFragment.class
+        return new Class[] {
+
         };
     }
 }
