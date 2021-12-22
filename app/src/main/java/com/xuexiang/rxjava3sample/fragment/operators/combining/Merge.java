@@ -15,7 +15,7 @@
  *
  */
 
-package com.xuexiang.rxjava3sample.fragment.operators.filtering;
+package com.xuexiang.rxjava3sample.fragment.operators.combining;
 
 import android.view.View;
 
@@ -25,24 +25,22 @@ import com.xuexiang.xpage.annotation.Page;
 import io.reactivex.rxjava3.core.Observable;
 
 /**
- * 前N项取值操作符
+ * 合并操作符
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#take
+ * https://github.com/ReactiveX/RxJava/wiki/Combining-Observables#merge
  */
-@Page(name = "take\n只发射前面的N项数据")
-public class Take extends BaseOperatorFragment {
-
+@Page(name = "merge\n将多个Observable合并为一个")
+public class Merge extends BaseOperatorFragment {
     @Override
     protected String getOperatorInstruction() {
-        return "take操作符让你可以修改Observable的行为，只返回前面的N项数据，然后发射完成通知，忽略剩余的数据。";
+        return "merge操作符将多个Observables的输出合并，就好像它们是一个单个的Observable一样。";
     }
 
     @Override
     protected void doOperation(View view) {
-        printNormal("发射数组:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
-        Observable<Integer> observable = Observable.range(1, 10)
-                // 只取前面四个
-                .take(4);
+        printNormal("合并发射数组:[4, 5, 6] 和 [1, 2, 3]");
+        Observable<Integer> observable = Observable.just(4, 5, 6)
+                .mergeWith(Observable.just(1, 2, 3));
         doSubscribe(observable);
     }
 }

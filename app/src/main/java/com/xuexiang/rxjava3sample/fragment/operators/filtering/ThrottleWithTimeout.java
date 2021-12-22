@@ -30,14 +30,14 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 /**
  * 过滤高频输出
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#filter
+ * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#throttleWithTimeout
  */
-@Page(name = "debounce\n过滤高频输出，常用于防抖动、快速点击等场景")
-public class Debounce extends BaseOperatorFragment {
+@Page(name = "throttleWithTimeout\n同debounce功能一样，是debounce的别名")
+public class ThrottleWithTimeout extends BaseOperatorFragment {
 
     @Override
     protected String getOperatorInstruction() {
-        return "debounce操作符会过滤掉发射速率过快的数据项。";
+        return "throttleWithTimeout操作符会过滤掉发射速率过快的数据项。";
     }
 
     @Override
@@ -70,6 +70,6 @@ public class Debounce extends BaseOperatorFragment {
 
         // 输出A、D、E
         doSubscribe(source.subscribeOn(Schedulers.io())
-                .debounce(1000, TimeUnit.MILLISECONDS));
+                .throttleWithTimeout(1000, TimeUnit.MILLISECONDS));
     }
 }

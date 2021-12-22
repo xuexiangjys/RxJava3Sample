@@ -25,7 +25,6 @@ import com.xuexiang.xpage.annotation.Page;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
  * 创建一个周期发射器
@@ -50,7 +49,7 @@ public class Interval extends BaseOperatorFragment {
             return;
         }
         clearLog();
-        logNormal("每1秒发射数据...");
+        printNormal("每1秒发射数据...");
 
         Observable<Long> clock = Observable.interval(1, TimeUnit.SECONDS);
         setDisposable(doSubscribe(clock));

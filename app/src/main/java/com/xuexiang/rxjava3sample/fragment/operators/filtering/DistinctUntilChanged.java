@@ -25,24 +25,23 @@ import com.xuexiang.xpage.annotation.Page;
 import io.reactivex.rxjava3.core.Observable;
 
 /**
- * 前N项取值操作符
+ * 抑制（过滤掉）连续重复的数据项
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#take
+ * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#distinctUntilChanged
  */
-@Page(name = "take\n只发射前面的N项数据")
-public class Take extends BaseOperatorFragment {
+@Page(name = "distinctUntilChanged\n过滤掉【连续】重复的数据项")
+public class DistinctUntilChanged extends BaseOperatorFragment {
 
     @Override
     protected String getOperatorInstruction() {
-        return "take操作符让你可以修改Observable的行为，只返回前面的N项数据，然后发射完成通知，忽略剩余的数据。";
+        return "distinctUntilChanged只是过滤掉连续重复的元素,不连续重复的是不过滤的。";
     }
 
     @Override
     protected void doOperation(View view) {
-        printNormal("发射数组:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
-        Observable<Integer> observable = Observable.range(1, 10)
-                // 只取前面四个
-                .take(4);
+        printNormal("发射数组:[1, 1, 2, 1, 2, 3, 3, 4]");
+        Observable<Integer> observable = Observable.just(1, 1, 2, 1, 2, 3, 3, 4)
+                .distinctUntilChanged();
         doSubscribe(observable);
     }
 }

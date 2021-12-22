@@ -34,11 +34,12 @@ public class TakeLast extends BaseOperatorFragment {
 
     @Override
     protected String getOperatorInstruction() {
-        return "TakeLast操作符修改原始Observable，你可以只发射Observable发射的后N项数据，忽略前面的数据。";
+        return "takeLast操作符修改原始Observable，你可以只发射Observable发射的后N项数据，忽略前面的数据。";
     }
 
     @Override
     protected void doOperation(View view) {
+        printNormal("发射数组:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
         Observable<Integer> observable = Observable.range(1, 10)
                 // 只取后面四个
                 .takeLast(4);

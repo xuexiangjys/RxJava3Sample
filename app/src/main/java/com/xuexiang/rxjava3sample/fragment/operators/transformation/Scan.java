@@ -39,10 +39,10 @@ public class Scan extends BaseOperatorFragment {
     @Override
     protected void doOperation(View view) {
         int initialValue = 10;
-        logNormal("initialValue:" + initialValue);
+        printNormal("initialValue:" + initialValue);
         Observable<Integer> observable = Observable.just(1, 2, 3, 4, 5)
                 .scan(initialValue, (partialSum, x) -> {
-                    logNormal("process " + partialSum + "+" + x);
+                    printNormal("process " + partialSum + "+" + x);
                     return partialSum + x;
                 });
         doSubscribe(observable);

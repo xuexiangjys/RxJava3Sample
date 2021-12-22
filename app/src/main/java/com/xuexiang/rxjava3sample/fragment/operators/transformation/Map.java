@@ -43,7 +43,7 @@ public class Map extends BaseOperatorFragment {
     protected void doOperation(View view) {
         Observable<String> observable = Observable.just(1, 2, 3)
                 .map(x -> {
-                    logNormal("map:" + x);
+                    printNormal("map:" + x);
                     return "项目" + x;
                 });
         doSubscribe(observable);

@@ -32,14 +32,15 @@ import io.reactivex.rxjava3.core.Observable;
 @Page(name = "filter\n过滤条件操作符")
 public class Filter extends BaseOperatorFragment {
 
-
     @Override
     protected String getOperatorInstruction() {
-        return "Filter操作符使用你指定的一个谓词函数测试数据项，只有通过测试的数据才会被发射。";
+        return "filter操作符使用你指定的一个谓词函数测试数据项，只有通过测试的数据才会被发射。";
     }
 
     @Override
     protected void doOperation(View view) {
+        printNormal("发射数组:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
+        printNormal("取其中的偶数如下:");
         // 取1～10中的偶数输出
         Observable<Integer> observable = Observable.range(1, 10)
                 .filter(x -> x % 2 == 0);

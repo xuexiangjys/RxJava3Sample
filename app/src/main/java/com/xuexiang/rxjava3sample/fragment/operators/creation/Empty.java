@@ -39,7 +39,7 @@ public class Empty extends BaseOperatorFragment {
     @Override
     protected void doOperation(View view) {
         Observable<String> empty = Observable.empty();
-        doSubscribe(empty, v -> logNormal("This should never be printed!"));
+        doSubscribe(empty, v -> printNormal("This should never be printed!"));
     }
 
 }

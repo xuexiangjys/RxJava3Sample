@@ -48,7 +48,7 @@ public class GroupBy extends BaseOperatorFragment {
         doSubscribe(groupedObservable,
                 (Consumer<GroupedObservable<String, Integer>>) group ->
                         doSubscribe(group,
-                                value -> logNormal("group key:" + group.getKey() + ", value:" + value)),
-                () -> logSuccess("Group Completed!"));
+                                value -> printNormal("group key:" + group.getKey() + ", value:" + value)),
+                () -> printSuccess("Group Completed!"));
     }
 }

@@ -29,7 +29,7 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
- * 连续变换操作
+ * 平铺转换选择操作, 选择最后一个输出
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#switchMap
  */
@@ -45,7 +45,7 @@ public class SwitchMap extends BaseOperatorFragment {
         Observable<String> observable = Observable.just(1, 2, 3)
                 .switchMap(x -> {
                     int delay = x == 2 ? 1 : 0;
-                    logNormal("switchMap:" + x);
+                    printNormal("switchMap:" + x);
                     return Observable.range(x * 10, 3)
                             .map(y -> "项目" + y).delay(delay, TimeUnit.SECONDS);
                 }).subscribeOn(Schedulers.io())

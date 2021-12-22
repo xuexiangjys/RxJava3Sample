@@ -49,7 +49,7 @@ public class ConcatMap extends BaseOperatorFragment {
         Observable<String> observable = Observable.just(1, 2, 3)
                 .concatMap(x -> {
                     int delay = x == 2 ? 1 : 0;
-                    logNormal("concatMap:" + x);
+                    printNormal("concatMap:" + x);
                     return Observable.range(x * 10, 3)
                             .map(y -> "项目" + y).delay(delay, TimeUnit.SECONDS);
                 }).subscribeOn(Schedulers.io())

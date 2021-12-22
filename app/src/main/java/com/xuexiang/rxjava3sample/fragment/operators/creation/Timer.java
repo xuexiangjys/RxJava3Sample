@@ -48,7 +48,7 @@ public class Timer extends BaseOperatorFragment {
             return;
         }
         clearLog();
-        logNormal("3秒钟后发射数据...");
+        printNormal("3秒钟后发射数据...");
 
         Observable<Long> delay = Observable.timer(3, TimeUnit.SECONDS);
         setDisposable(doSubscribe(delay));

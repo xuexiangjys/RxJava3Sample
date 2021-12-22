@@ -19,9 +19,17 @@ package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.rxjava3sample.fragment.operators.filtering.Debounce;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.Distinct;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.DistinctUntilChanged;
 import com.xuexiang.rxjava3sample.fragment.operators.filtering.Filter;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.First;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.Last;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.OfType;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.Skip;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.SkipLast;
 import com.xuexiang.rxjava3sample.fragment.operators.filtering.Take;
 import com.xuexiang.rxjava3sample.fragment.operators.filtering.TakeLast;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.ThrottleWithTimeout;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -34,11 +42,19 @@ public class FilteringFragment extends BaseContainerFragment {
 
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[] {
+        return new Class[]{
                 Filter.class,
+                OfType.class,
                 Debounce.class,
+                ThrottleWithTimeout.class,
+                Distinct.class,
+                DistinctUntilChanged.class,
+                First.class,
+                Last.class,
                 Take.class,
-                TakeLast.class
+                TakeLast.class,
+                Skip.class,
+                SkipLast.class
         };
     }
 }

@@ -50,21 +50,21 @@ public class From extends BaseOperatorFragment {
 
     @Override
     protected void doOperation(View view) {
-        logNormal("====[fromIterable]====");
+        printNormal("====[fromIterable]====");
         List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         Observable<Integer> iterableObservable = Observable.fromIterable(list);
         doSubscribe(iterableObservable);
 
-        logNormal("====[fromArray]====");
+        printNormal("====[fromArray]====");
         Observable<String> arrayObservable = Observable.fromArray("aaa", "bbb", "ccc");
         doSubscribe(arrayObservable);
 
-        logNormal("====[fromAction]====");
-        Action action = () -> logNormal("this is a action!");
+        printNormal("====[fromAction]====");
+        Action action = () -> printNormal("this is a action!");
         Completable actionCompletable = Completable.fromAction(action);
-        doSubscribe(actionCompletable);
+        doCompletableSubscribe(actionCompletable);
 
-        logNormal("====[fromFuture]====");
+        printNormal("====[fromFuture]====");
         Future<String> future = ExecutorUtils.getSingleExecutor().schedule(() -> "Future delay one second!", 1, TimeUnit.SECONDS);
         Observable<String> futureObservable = Observable.fromFuture(future)
                 // 不设置的话会阻塞主线程

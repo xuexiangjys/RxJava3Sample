@@ -29,7 +29,9 @@ import com.xuexiang.xui.utils.ViewUtils;
 import com.xuexiang.xutil.common.StringUtils;
 
 import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.Consumer;
@@ -74,24 +76,35 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
 
     @NonNull
     protected <T> Disposable doSubscribe(Observable<T> observable) {
-        return observable.subscribe(item -> logNormal(StringUtils.toString(item)), error -> logError(error.getMessage()),
-                () -> logSuccess("Completed!"));
+        return observable.subscribe(item -> printNormal(StringUtils.toString(item)), error -> printError(error.getMessage()),
+                () -> printSuccess("Completed!"));
     }
 
     @NonNull
     protected <T> Disposable doSubscribe(Observable<T> observable, @NonNull Consumer<? super T> onNext) {
-        return observable.subscribe(onNext, error -> logError(error.getMessage()),
-                () -> logSuccess("Completed!"));
+        return observable.subscribe(onNext, error -> printError(error.getMessage()),
+                () -> printSuccess("Completed!"));
     }
 
     @NonNull
     protected <T> Disposable doSubscribe(Observable<T> observable, @NonNull Consumer<? super T> onNext, @NonNull Action onComplete) {
-        return observable.subscribe(onNext, error -> logError(error.getMessage()), onComplete);
+        return observable.subscribe(onNext, error -> printError(error.getMessage()), onComplete);
     }
 
     @NonNull
-    protected Disposable doSubscribe(Completable completable) {
-        return completable.subscribe(() -> logSuccess("Completed!"), error -> logError(error.getMessage()));
+    protected <T> Disposable doSingleSubscribe(Single<T> single) {
+        return single.subscribe(item -> printNormal(StringUtils.toString(item)), error -> printError(error.getMessage()));
+    }
+
+    @NonNull
+    protected <T> Disposable doMaybeSubscribe(Maybe<T> maybe) {
+        return maybe.subscribe(item -> printNormal(StringUtils.toString(item)), error -> printError(error.getMessage()),
+                () -> printSuccess("Completed!"));
+    }
+
+    @NonNull
+    protected Disposable doCompletableSubscribe(Completable completable) {
+        return completable.subscribe(() -> printSuccess("Completed!"), error -> printError(error.getMessage()));
     }
 
     /**
@@ -137,8 +150,15 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      *
      * @param logContent 日志内容
      */
-    public void logNormal(String logContent) {
+    public void printNormal(String logContent) {
         getBinding().logger.logNormal(logContent);
+    }
+
+    /**
+     * 添加分割线
+     */
+    public void println() {
+        getBinding().logger.logNormal("------------------------------------------------------------");
     }
 
     /**
@@ -146,7 +166,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      *
      * @param logContent 日志内容
      */
-    public void logSuccess(String logContent) {
+    public void printSuccess(String logContent) {
         getBinding().logger.logSuccess(logContent);
     }
 
@@ -155,7 +175,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      *
      * @param logContent 日志内容
      */
-    public void logError(String logContent) {
+    public void printError(String logContent) {
         getBinding().logger.logError(logContent);
     }
 

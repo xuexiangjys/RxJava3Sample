@@ -18,24 +18,20 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.combining.Merge;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
- * 这个只是一个空壳Fragment，只是用于演示而已
- *
- * @author xuexiang
- * @since 2019-07-08 00:52
+ * 结合类型的操作符
+ * <p>
+ * https://github.com/ReactiveX/RxJava/wiki/Combining-Observables
  */
-@Page(name = "operators(操作符)")
-public class OperatorsFragment extends BaseContainerFragment {
-
+@Page(name = "Combining(结合)")
+public class CombiningFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[] {
-                CreationFragment.class,
-                Transformation.class,
-                FilteringFragment.class,
-                CombiningFragment.class
+        return new Class[]{
+                Merge.class
         };
     }
 }

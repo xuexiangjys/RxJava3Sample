@@ -55,7 +55,7 @@ public class Error extends BaseOperatorFragment {
         });
 
         for (int i = 0; i < 10; i++) {
-            doSubscribe(result, v -> logNormal("This should never be printed!"));
+            doSubscribe(result, v -> printNormal("This should never be printed!"));
         }
 
     }

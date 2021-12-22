@@ -48,7 +48,7 @@ public class FlatMap extends BaseOperatorFragment {
         Observable<String> observable = Observable.just(1, 2, 3)
                 .flatMap(x -> {
                     int delay = x == 2 ? 1 : 0;
-                    logNormal("flatMap:" + x);
+                    printNormal("flatMap:" + x);
                     return Observable.range(x * 10, 3)
                             .map(y -> "项目" + y).delay(delay, TimeUnit.SECONDS);
                 })
