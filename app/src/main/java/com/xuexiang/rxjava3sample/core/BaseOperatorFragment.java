@@ -32,6 +32,7 @@ import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.Consumer;
@@ -42,6 +43,8 @@ import io.reactivex.rxjava3.functions.Consumer;
 public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplateBinding> {
 
     protected Disposable disposable;
+
+    protected CompositeDisposable disposablePool;
 
     @NonNull
     @Override
@@ -68,10 +71,6 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      */
     protected void beforeOperation() {
         clearLog();
-    }
-
-    public void setDisposable(Disposable disposable) {
-        this.disposable = disposable;
     }
 
     @NonNull
@@ -133,14 +132,29 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
         return false;
     }
 
+
+    public void setDisposable(Disposable disposable) {
+        this.disposable = disposable;
+    }
+
     protected boolean isOperationNotDisposed() {
         return disposable != null && !disposable.isDisposed();
+    }
+
+    public void addDisposable(Disposable disposable) {
+        if (disposablePool == null) {
+            disposablePool = new CompositeDisposable();
+        }
+        disposablePool.add(disposable);
     }
 
     @Override
     public void onDestroyView() {
         if (disposable != null && !disposable.isDisposed()) {
             disposable.dispose();
+        }
+        if (disposablePool != null && !disposablePool.isDisposed()) {
+            disposablePool.dispose();
         }
         super.onDestroyView();
     }

@@ -18,6 +18,7 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.utility.Delay;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -25,13 +26,13 @@ import com.xuexiang.xpage.annotation.Page;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Observable-Utility-Operators
  */
-@Page(name = "Observable Utility(辅助操作)")
+@Page(name = "Observable Utility\n辅助操作")
 public class ObservableUtilityFragment extends BaseContainerFragment {
 
     @Override
     protected Class[] getPagesClasses() {
         return new Class[] {
-
+                Delay.class
         };
     }
 }

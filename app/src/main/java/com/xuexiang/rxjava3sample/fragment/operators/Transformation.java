@@ -34,7 +34,7 @@ import com.xuexiang.xpage.annotation.Page;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables
  */
-@Page(name = "Transformation(转换)")
+@Page(name = "Transformation\n转换")
 public class Transformation extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {

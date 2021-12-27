@@ -26,7 +26,7 @@ import com.xuexiang.xpage.annotation.Page;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Conditional-and-Boolean-Operators
  */
-@Page(name = "Conditional & Boolean(条件和布尔操作)")
+@Page(name = "Conditional & Boolean\n条件和布尔操作")
 public class ConditionalFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {

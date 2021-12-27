@@ -37,7 +37,7 @@ import com.xuexiang.xpage.annotation.Page;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables
  */
-@Page(name = "Filtering(过滤)")
+@Page(name = "Filtering\n过滤")
 public class FilteringFragment extends BaseContainerFragment {
 
     @Override

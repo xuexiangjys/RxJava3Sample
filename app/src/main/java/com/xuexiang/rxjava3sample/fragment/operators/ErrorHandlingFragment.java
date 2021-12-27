@@ -18,6 +18,7 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.errorhandling.Retry;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -25,12 +26,12 @@ import com.xuexiang.xpage.annotation.Page;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Error-Handling-Operators
  */
-@Page(name = "ErrorHandling(错误处理)")
+@Page(name = "ErrorHandling\n错误处理")
 public class ErrorHandlingFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
-
+                Retry.class
         };
     }
 }

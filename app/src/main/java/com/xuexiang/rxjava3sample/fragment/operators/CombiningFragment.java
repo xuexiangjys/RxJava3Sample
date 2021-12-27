@@ -26,7 +26,7 @@ import com.xuexiang.xpage.annotation.Page;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Combining-Observables
  */
-@Page(name = "Combining(结合)")
+@Page(name = "Combining\n结合")
 public class CombiningFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {

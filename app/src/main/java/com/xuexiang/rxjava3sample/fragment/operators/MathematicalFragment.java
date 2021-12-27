@@ -18,28 +18,22 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.mathematical.Max;
+import com.xuexiang.rxjava3sample.fragment.operators.mathematical.Min;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
- * 这个只是一个空壳Fragment，只是用于演示而已
- *
- * @author xuexiang
- * @since 2019-07-08 00:52
+ * 算术和聚合操作
+ * <p>
+ * https://github.com/ReactiveX/RxJava/wiki/Mathematical-and-Aggregate-Operators
  */
-@Page(name = "operators\n操作符")
-public class OperatorsFragment extends BaseContainerFragment {
-
+@Page(name = "Mathematical and Aggregate\n算术和聚合, 需要引用rxjava3-extensions")
+public class MathematicalFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
-                CreationFragment.class,
-                Transformation.class,
-                FilteringFragment.class,
-                CombiningFragment.class,
-                ErrorHandlingFragment.class,
-                ObservableUtilityFragment.class,
-                ConditionalFragment.class,
-                MathematicalFragment.class
+                Max.class,
+                Min.class
         };
     }
 }

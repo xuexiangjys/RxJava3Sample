@@ -33,7 +33,7 @@ import com.xuexiang.xpage.annotation.Page;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables
  */
-@Page(name = "Creation(创建)")
+@Page(name = "Creation\n创建")
 public class CreationFragment extends BaseContainerFragment {
 
     @Override
