@@ -1,0 +1,8 @@
+addDisposable(Observable.interval(0, 1, TimeUnit.SECONDS)
+        .takeUntil(x -> x >= 4)
+        .subscribe(value -> printNormal(String.format("%s秒后发送数据...", 5 - value))));
+
+Observable<Integer> delayObservable = Observable.range(0, 5)
+        // 延迟5秒钟后发射
+        .delay(5, TimeUnit.SECONDS);
+setDisposable(doSubscribe(delayObservable));

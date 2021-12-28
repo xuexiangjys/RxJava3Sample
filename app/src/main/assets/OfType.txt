@@ -1,0 +1,4 @@
+printNormal("发射数组:[1, 4.0, 3, 2.71, 2f, 7]");
+printNormal("取Integer类型:");
+Observable<Number> numbers = Observable.just(1, 4.0, 3, 2.71, 2F, 7);
+doSubscribe(numbers.ofType(Integer.class));

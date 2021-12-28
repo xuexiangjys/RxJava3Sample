@@ -34,6 +34,7 @@ import io.reactivex.rxjava3.observables.GroupedObservable;
  */
 @Page(name = "groupBy\n分组操作符")
 public class GroupBy extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
         return "将一个Observable按某个规则进行分组。分拆为一些Observables集合，它们中的每一个发射原始Observable的一个子集";
@@ -43,10 +44,10 @@ public class GroupBy extends BaseOperatorFragment {
     protected void doOperation(View view) {
         // String为组类型，Integer为值类型
         Observable<GroupedObservable<String, Integer>> groupedObservable = Observable.range(0, 10)
-                .groupBy((Function<Integer, String>) x -> "[" + (x % 3) + "]");
+                .groupBy(x -> "[" + (x % 3) + "]");
 
         doSubscribe(groupedObservable,
-                (Consumer<GroupedObservable<String, Integer>>) group ->
+                group ->
                         doSubscribe(group,
                                 value -> printNormal("group key:" + group.getKey() + ", value:" + value)),
                 () -> printSuccess("Group Completed!"));

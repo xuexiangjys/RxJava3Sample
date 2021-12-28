@@ -31,6 +31,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 @Page(name = "just\n特定值发射器")
 public class Just extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
         return "创建一个发射指定值的Observable";

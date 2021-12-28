@@ -35,6 +35,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 @Page(name = "window\n窗口操作符，根据一定的规则，将发射器分为多段进行发送")
 public class Window extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
         return "定期将来自原始Observable的数据分解为一个Observable窗口，发射这些窗口，而不是每次发射一项数据";

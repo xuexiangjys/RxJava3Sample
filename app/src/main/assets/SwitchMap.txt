@@ -1,0 +1,9 @@
+Observable<String> observable = Observable.just(1, 2, 3)
+        .switchMap(x -> {
+            int delay = x == 2 ? 1 : 0;
+            printNormal("switchMap:" + x);
+            return Observable.range(x * 10, 3)
+                    .map(y -> "项目" + y).delay(delay, TimeUnit.SECONDS);
+        }).subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread());
+doSubscribe(observable);

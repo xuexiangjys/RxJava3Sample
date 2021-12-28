@@ -1,0 +1,6 @@
+printNormal("发射数组:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
+printNormal("取其中的偶数如下:");
+// 取1～10中的偶数输出
+Observable<Integer> observable = Observable.range(1, 10)
+        .filter(x -> x % 2 == 0);
+doSubscribe(observable);

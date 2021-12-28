@@ -1,0 +1,9 @@
+// String为组类型，Integer为值类型
+Observable<GroupedObservable<String, Integer>> groupedObservable = Observable.range(0, 10)
+        .groupBy(x -> "[" + (x % 3) + "]");
+
+doSubscribe(groupedObservable,
+        group ->
+                doSubscribe(group,
+                        value -> printNormal("group key:" + group.getKey() + ", value:" + value)),
+        () -> printSuccess("Group Completed!"));

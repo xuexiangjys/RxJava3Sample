@@ -31,6 +31,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 @Page(name = "empty\n空发射器")
 public class Empty extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
         return "创建一个不发射任何数据但是正常终止的Observable";

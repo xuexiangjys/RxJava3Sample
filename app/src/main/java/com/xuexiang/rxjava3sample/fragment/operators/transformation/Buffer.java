@@ -33,6 +33,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 @Page(name = "buffer\n缓冲池操作符")
 public class Buffer extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
         return "定期收集Observable的数据放进一个数据包裹，然后发射这些数据包裹，而不是一次发射一个值。";

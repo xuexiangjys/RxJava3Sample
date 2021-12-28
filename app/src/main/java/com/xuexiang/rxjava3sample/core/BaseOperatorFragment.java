@@ -20,14 +20,19 @@ package com.xuexiang.rxjava3sample.core;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.xuexiang.rxjava3sample.databinding.FragmentTemplateBinding;
+import com.xuexiang.xaop.annotation.MemoryCache;
 import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xui.utils.ViewUtils;
+import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xutil.common.StringUtils;
+import com.xuexiang.xutil.resource.ResourceUtils;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Observable;
@@ -36,6 +41,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * 操作符基础类
@@ -46,6 +52,13 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
 
     protected CompositeDisposable disposablePool;
 
+    /**
+     * 是否显示源码
+     */
+    private boolean mIsShowCode;
+
+    private TextView mAction;
+
     @NonNull
     @Override
     protected FragmentTemplateBinding viewBindingInflate(LayoutInflater inflater, ViewGroup container) {
@@ -55,9 +68,36 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
     @Override
     protected void initViews() {
         getBinding().tvInstruction.setText(getOperatorInstruction());
+        addDisposable(Observable.just(getOperatorName())
+                .map(x -> String.format("%s.txt", x))
+                .map(this::getCodeContent)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(code -> getBinding().codeView.setCode(code)));
+        refreshCodeView(mIsShowCode);
+
         getBinding().btnStart.setOnClickListener(this::handleOperationStart);
         getBinding().btnEnd.setOnClickListener(this::stopOperation);
         ViewUtils.setVisibility(getBinding().btnEnd, isContinuousOperation());
+    }
+
+    @Override
+    protected TitleBar initTitle() {
+        TitleBar titleBar = super.initTitle();
+        mAction = (TextView) titleBar.addAction(new TitleBar.TextAction(mIsShowCode ? "简介" : "源码") {
+            @Override
+            public void performAction(View view) {
+                mIsShowCode = !mIsShowCode;
+                mAction.setText(mIsShowCode ? "简介" : "源码");
+                refreshCodeView(mIsShowCode);
+            }
+        });
+        return titleBar;
+    }
+
+    private void refreshCodeView(boolean isShowCode) {
+        ViewUtils.setVisibility(getBinding().codeView, isShowCode);
+        ViewUtils.setVisibility(getBinding().tvInstruction, !isShowCode);
     }
 
     @SingleClick
@@ -104,6 +144,15 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
     @NonNull
     protected Disposable doCompletableSubscribe(Completable completable) {
         return completable.subscribe(() -> printSuccess("Completed!"), error -> printError(error.getMessage()));
+    }
+
+    /**
+     * 获取操作符的名称
+     *
+     * @return 操作符的名称
+     */
+    protected String getOperatorName() {
+        return getSimpleName(this);
     }
 
     /**
@@ -160,6 +209,13 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
     }
 
     /**
+     * 获取对象的类名
+     */
+    public static String getSimpleName(final Object object) {
+        return object != null ? object.getClass().getSimpleName() : "NULL";
+    }
+
+    /**
      * 添加普通日志
      *
      * @param logContent 日志内容
@@ -200,4 +256,9 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
         getBinding().logger.clearLog();
     }
 
+    @MemoryCache
+    private String getCodeContent(String url) {
+        return ResourceUtils.readStringFromAssert(url);
+
+    }
 }

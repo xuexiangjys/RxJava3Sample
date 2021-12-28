@@ -1,0 +1,11 @@
+Observable<List<Integer>> windowObservable = Observable.range(1, 10)
+        // skip=2代表原数据源每发射到第2个时跳过，并新开一个窗口
+        // count=3代表每个窗口最多发3个数据项后，就关闭窗口并新开一个窗口（窗体大小）
+        .window(3, 2)
+        .flatMapSingle(Observable::toList);
+
+// 当count=skip，效果就等于buffer，数据没有丢失和重复
+// 当count>skip，每个窗口数据有 count-skip 重复
+// 当count<skip，每个窗口数据有 skip-count 丢失
+
+doSubscribe(windowObservable);

@@ -31,6 +31,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 @Page(name = "range\n整数序列发射器")
 public class Range extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
         return "创建一个发射特定整数序列的Observable";

@@ -1,0 +1,2 @@
+Observable<String> empty = Observable.empty();
+doSubscribe(empty, v -> printNormal("This should never be printed!"));

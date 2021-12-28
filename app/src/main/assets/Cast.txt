@@ -1,0 +1,5 @@
+Observable<Object> numbers = Observable.just(1, 4.0, 3F, 7, 12, 4.6, 5);
+// 强转Integer类型
+doSubscribe(numbers.cast(Integer.class));
+// 强转Number类型
+doSubscribe(numbers.cast(Number.class));

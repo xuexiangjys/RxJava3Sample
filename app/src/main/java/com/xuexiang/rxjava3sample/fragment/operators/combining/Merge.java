@@ -31,6 +31,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 @Page(name = "merge\n将多个Observable合并为一个")
 public class Merge extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
         return "merge操作符将多个Observables的输出合并，就好像它们是一个单个的Observable一样。";

@@ -1,0 +1,2 @@
+Observable<String> observable = Observable.just("111", "222", "333", "444");
+doSubscribe(observable);

@@ -1,0 +1,9 @@
+printNormal("求数组[4, 9, 8, 13, 43, 5]中的最大值：");
+Observable<Integer> numbers = Observable.just(4, 9, 8, 13, 43, 5);
+
+doSubscribe(MathObservable.max(numbers));
+
+printNormal("求字符串数组[\"Kirk\", \"Spock\", \"Chekov\", \"Sulu\"]中的最大值：");
+Observable<String> strings = Observable.just("Kirk", "Spock", "Chekov", "Sulu");
+
+doSubscribe(MathObservable.max(strings));

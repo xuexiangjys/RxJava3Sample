@@ -1,0 +1,4 @@
+printNormal("发射数组:[2, 3, 4, 4, 2, 1]");
+Observable<Integer> observable = Observable.just(2, 3, 4, 4, 2, 1)
+        .distinct();
+doSubscribe(observable);

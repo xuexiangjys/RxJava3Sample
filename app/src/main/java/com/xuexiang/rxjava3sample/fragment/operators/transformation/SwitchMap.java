@@ -35,9 +35,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  */
 @Page(name = "switchMap\n平铺转换操作，与flatMap相比，仅返回最后发出Observable")
 public class SwitchMap extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
-        return "SwitchMap和flatMap一样可以将源可观察性展平，但仅返回最后发出的单个可观察性。";
+        return "switchMap和flatMap一样可以将源可观察性展平，但仅返回最后发出的单个可观察性。";
     }
 
     @Override

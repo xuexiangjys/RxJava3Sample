@@ -1,0 +1,4 @@
+printNormal("每1秒发射数据...");
+
+Observable<Long> clock = Observable.interval(1, TimeUnit.SECONDS);
+setDisposable(doSubscribe(clock));

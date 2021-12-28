@@ -1,0 +1,18 @@
+Observable<String> observable = Observable.fromCallable(() -> {
+    if (Math.random() < 0.5) {
+        throw new Exception("number is less than 0.5!");
+    }
+    throw new IllegalArgumentException("number is illegal!");
+});
+
+// 抛出Exception错误，不抛出IllegalArgumentException错误
+Observable<String> result = observable.onErrorResumeNext(error -> {
+    if (error instanceof IllegalArgumentException) {
+        return Observable.empty();
+    }
+    return Observable.error(error);
+});
+
+for (int i = 0; i < 10; i++) {
+    doSubscribe(result, v -> printNormal("This should never be printed!"));
+}

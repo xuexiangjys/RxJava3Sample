@@ -25,6 +25,8 @@ import androidx.multidex.MultiDex;
 import com.xuexiang.rxjava3sample.utils.sdkinit.UMengInit;
 import com.xuexiang.rxjava3sample.utils.sdkinit.XBasicLibInit;
 
+import io.github.kbiakov.codeview.classifier.CodeProcessor;
+
 /**
  * @author xuexiang
  * @since 2018/11/7 下午1:12
@@ -50,6 +52,7 @@ public class MyApp extends Application {
     private void initLibs() {
         XBasicLibInit.init(this);
         UMengInit.init(this);
+        CodeProcessor.init(this);
     }
 
 

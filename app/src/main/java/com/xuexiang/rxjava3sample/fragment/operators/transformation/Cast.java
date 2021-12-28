@@ -31,6 +31,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 @Page(name = "cast\n类型转换操作符")
 public class Cast extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
         return "cast将发射出去的数据转换成指定类型, 如果类型无法转换将会报错终止。";

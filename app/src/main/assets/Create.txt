@@ -1,0 +1,13 @@
+// 循环发送数据
+ObservableOnSubscribe<String> handler = emitter -> {
+    mEmitter = emitter;
+    ScheduledFuture<?> future = ExecutorUtils.getSingleExecutor().scheduleAtFixedRate(() -> {
+        emitter.onNext("Hello World!");
+        emitter.onNext("This is No." + mCount);
+        mCount++;
+    }, 0, 1, TimeUnit.SECONDS);
+    emitter.setCancellable(() -> future.cancel(false));
+};
+
+Observable<String> observable = Observable.create(handler);
+setDisposable(doSubscribe(observable));

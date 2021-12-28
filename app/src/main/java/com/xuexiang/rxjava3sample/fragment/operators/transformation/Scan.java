@@ -31,6 +31,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 @Page(name = "scan\n连续变换操作")
 public class Scan extends BaseOperatorFragment {
+
     @Override
     protected String getOperatorInstruction() {
         return "连续地对数据序列的每一项应用一个函数，然后连续发射结果";

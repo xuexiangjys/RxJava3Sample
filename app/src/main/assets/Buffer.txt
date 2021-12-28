@@ -1,0 +1,4 @@
+Observable<List<Integer>> observable = Observable.range(0, 10)
+        // 设置缓存大小
+        .buffer(4);
+doSubscribe(observable);

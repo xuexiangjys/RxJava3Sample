@@ -1,0 +1,23 @@
+printNormal("发射数组:[A, B, C]");
+Observable<String> source = Observable.just("A", "B", "C");
+
+printNormal("last:");
+Single<String> lastOrDefault = source.last("D");
+doSingleSubscribe(lastOrDefault);
+
+printNormal("lastElement:");
+Maybe<String> lastElement = source.lastElement();
+doMaybeSubscribe(lastElement);
+
+println();
+
+printNormal("发射数组:[]");
+Observable<String> source2 = Observable.empty();
+
+printNormal("last:");
+Single<String> lastOrDefault2 = source2.last("D");
+doSingleSubscribe(lastOrDefault2);
+
+printNormal("lastElement:");
+Maybe<String> lastElement2 = source2.lastElement();
+doMaybeSubscribe(lastElement2);

@@ -1,0 +1,2 @@
+Observable<Integer> observable = Observable.range(1, 10);
+doSubscribe(observable);
