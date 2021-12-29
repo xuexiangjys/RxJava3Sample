@@ -1,0 +1,9 @@
+printNormal("A每600ms发射，B每350ms发射");
+
+Observable<Long> A = Observable.interval(600, TimeUnit.MILLISECONDS);
+Observable<Long> B = Observable.interval(350, TimeUnit.MILLISECONDS);
+
+Observable<String> result = Observable.combineLatest(A, B,
+        (a, b) -> ("A:" + a + ", B:" + b));
+
+setDisposable(doSubscribe(result));

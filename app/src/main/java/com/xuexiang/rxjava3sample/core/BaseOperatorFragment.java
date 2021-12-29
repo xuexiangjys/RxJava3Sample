@@ -199,13 +199,28 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
 
     @Override
     public void onDestroyView() {
+        cancelSubscribe();
+        cancelSubscribePool();
+        super.onDestroyView();
+    }
+
+
+    /**
+     * 取消订阅
+     */
+    protected void cancelSubscribe() {
         if (disposable != null && !disposable.isDisposed()) {
             disposable.dispose();
         }
+    }
+
+    /**
+     * 取消订阅池订阅
+     */
+    protected void cancelSubscribePool() {
         if (disposablePool != null && !disposablePool.isDisposed()) {
             disposablePool.dispose();
         }
-        super.onDestroyView();
     }
 
     /**

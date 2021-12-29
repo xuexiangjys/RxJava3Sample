@@ -1,0 +1,7 @@
+printNormal("合并发射数组:[\"aaa\", \"bbb\", \"ccc\"] 和 [\"111\", \"222\", \"333\"]");
+
+Observable<String> firstNames = Observable.just("aaa", "bbb", "ccc");
+Observable<String> lastNames = Observable.just("111", "222", "333");
+
+Observable<String> zipResult = firstNames.zipWith(lastNames, (first, last) -> first + " " + last);
+doSubscribe(zipResult);

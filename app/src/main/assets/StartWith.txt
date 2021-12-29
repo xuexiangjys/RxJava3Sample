@@ -1,0 +1,4 @@
+printNormal("向数组[\"aaa\", \"bbb\"]中插入\"ccc\"");
+
+Observable<String> names = Observable.just("aaa", "bbb");
+doSubscribe(names.startWith(Observable.just("ccc")));
