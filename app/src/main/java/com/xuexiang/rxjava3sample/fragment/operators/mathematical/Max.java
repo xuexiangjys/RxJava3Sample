@@ -30,6 +30,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 求序列最大值操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Mathematical-and-Aggregate-Operators#max
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974516
  */
 @Page(name = "max\n求序列最大值并发射")
 public class Max extends BaseOperatorFragment {

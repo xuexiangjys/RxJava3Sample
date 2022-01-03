@@ -31,6 +31,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * 过滤高频输出
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#throttleWithTimeout
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974472
  */
 @Page(name = "throttleWithTimeout\n同debounce功能一样，是debounce的别名")
 public class ThrottleWithTimeout extends BaseOperatorFragment {

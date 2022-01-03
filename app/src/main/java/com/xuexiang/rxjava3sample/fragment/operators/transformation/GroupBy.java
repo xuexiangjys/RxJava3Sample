@@ -31,6 +31,8 @@ import io.reactivex.rxjava3.observables.GroupedObservable;
  * 分组操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#groupBy
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974467
  */
 @Page(name = "groupBy\n分组操作符")
 public class GroupBy extends BaseOperatorFragment {

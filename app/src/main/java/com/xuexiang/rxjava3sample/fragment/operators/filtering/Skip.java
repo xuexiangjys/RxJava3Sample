@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 跳过开始的N项数据
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#skip
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974480
  */
 @Page(name = "skip\n跳过开始的N项数据, 和take相反")
 public class Skip extends BaseOperatorFragment {

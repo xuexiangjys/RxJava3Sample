@@ -35,6 +35,8 @@ import io.reactivex.rxjava3.core.ObservableOnSubscribe;
  * 自定义创建操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#create
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974454
  */
 @Page(name = "create\n自定义发射器")
 public class Create extends BaseOperatorFragment {

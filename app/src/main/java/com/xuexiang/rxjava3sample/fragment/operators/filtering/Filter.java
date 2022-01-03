@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 过滤条件操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#filter
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974475
  */
 @Page(name = "filter\n过滤条件操作符")
 public class Filter extends BaseOperatorFragment {

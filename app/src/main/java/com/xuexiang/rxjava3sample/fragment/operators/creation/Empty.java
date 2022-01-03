@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 空发射器
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#empty
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974456
  */
 @Page(name = "empty\n空发射器")
 public class Empty extends BaseOperatorFragment {

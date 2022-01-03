@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 合并操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Combining-Observables#merge
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974488
  */
 @Page(name = "merge\n将多个Observable合并为一个")
 public class Merge extends BaseOperatorFragment {
@@ -43,5 +45,10 @@ public class Merge extends BaseOperatorFragment {
         Observable<Integer> observable = Observable.just(4, 5, 6)
                 .mergeWith(Observable.just(1, 2, 3));
         doSubscribe(observable);
+
+        printNormal("两个发射组有一个发射了error");
+        Observable<String> errorObservable = Observable.error(new IllegalArgumentException("This is an error！！"));
+        Observable<String> normalObservable = Observable.just("Four", "Five", "Six");
+        doSubscribe(Observable.mergeDelayError(errorObservable, normalObservable));
     }
 }

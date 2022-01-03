@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 创建一个特定值发射器
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#just
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974459
  */
 @Page(name = "just\n特定值发射器")
 public class Just extends BaseOperatorFragment {

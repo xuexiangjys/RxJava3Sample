@@ -30,6 +30,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 每次发射合并其他Observables最近一次数据
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Combining-Observables#combineLatest
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974486
  */
 @Page(name = "combineLatest\n每次发射合并其他Observables最近一次数据")
 public class CombineLatest extends BaseOperatorFragment {

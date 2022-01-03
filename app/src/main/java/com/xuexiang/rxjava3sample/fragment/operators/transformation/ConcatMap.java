@@ -33,6 +33,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#concatmap
  * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974466
+ * <p>
  * 1.concatMap是有序的，flatMap是无序的。concatMap最终输出的顺序与原序列保持一致，而flatMap则不一定，有可能出现交错。
  * 2.concatMap是按照发射顺序发射的，flatMap是按照执行完毕的顺序发射的。
  */

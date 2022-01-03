@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 首发执行操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Conditional-and-Boolean-Operators#amb
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974509
  */
 @Page(name = "amb\n多个Observable, 只让第一个发射数据的Observable发射全部数据")
 public class Amb extends BaseOperatorFragment {

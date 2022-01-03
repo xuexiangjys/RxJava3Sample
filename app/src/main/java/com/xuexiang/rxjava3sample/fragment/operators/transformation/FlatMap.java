@@ -33,6 +33,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#flatmap
  * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974466
+ * <p>
  * FlatMap发出Observables而不是值
  */
 @Page(name = "flatMap\n平铺转换操作，适用于一对多，多对多的转换")

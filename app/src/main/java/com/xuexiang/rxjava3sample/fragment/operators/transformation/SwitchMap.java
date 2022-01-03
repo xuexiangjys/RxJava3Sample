@@ -32,6 +32,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * 平铺转换选择操作, 选择最后一个输出
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#switchMap
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974466
  */
 @Page(name = "switchMap\n平铺转换操作，与flatMap相比，仅返回最后发出Observable")
 public class SwitchMap extends BaseOperatorFragment {

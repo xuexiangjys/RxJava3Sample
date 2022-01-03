@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 前N项取值操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#take
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974482
  */
 @Page(name = "take\n只发射前面的N项数据")
 public class Take extends BaseOperatorFragment {

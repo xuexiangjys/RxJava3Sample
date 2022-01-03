@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 后N项取值操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#takeLast
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974483
  */
 @Page(name = "takeLast\n只发射后面的N项数据")
 public class TakeLast extends BaseOperatorFragment {

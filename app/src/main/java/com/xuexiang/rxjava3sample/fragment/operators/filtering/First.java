@@ -30,6 +30,8 @@ import io.reactivex.rxjava3.core.Single;
  * 只发射第一项（或者满足某个条件的第一项）数据。
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#first
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974476
  */
 @Page(name = "first\n只取第一项数据进行发射")
 public class First extends BaseOperatorFragment {

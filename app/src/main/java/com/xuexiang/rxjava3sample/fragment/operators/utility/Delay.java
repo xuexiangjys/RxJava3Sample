@@ -30,6 +30,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 延迟发射操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Error-Handling-Operators#delay
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974496
  */
 @Page(name = "delay\n延迟一段指定的时间再发射来自Observable的发射物.")
 public class Delay extends BaseOperatorFragment {

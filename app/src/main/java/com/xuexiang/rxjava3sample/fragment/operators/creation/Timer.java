@@ -30,6 +30,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 创建一个延迟发射器
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#timer
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974463
  */
 @Page(name = "timer\n延迟发射器")
 public class Timer extends BaseOperatorFragment {

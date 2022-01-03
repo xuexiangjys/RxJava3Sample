@@ -29,6 +29,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 求序列最小值操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Mathematical-and-Aggregate-Operators#min
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974516
  */
 @Page(name = "min\n求序列最小值并发射")
 public class Min extends BaseOperatorFragment {

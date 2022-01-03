@@ -30,6 +30,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 缓冲池操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#buffer
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974465
  */
 @Page(name = "buffer\n缓冲池操作符")
 public class Buffer extends BaseOperatorFragment {

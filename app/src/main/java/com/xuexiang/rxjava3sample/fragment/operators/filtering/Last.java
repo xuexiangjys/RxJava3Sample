@@ -30,6 +30,8 @@ import io.reactivex.rxjava3.core.Single;
  * 只发射最后一项（或者满足某个条件的最后一项）数据。
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#last
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974478
  */
 @Page(name = "last\n只取最后一项数据进行发射")
 public class Last extends BaseOperatorFragment {

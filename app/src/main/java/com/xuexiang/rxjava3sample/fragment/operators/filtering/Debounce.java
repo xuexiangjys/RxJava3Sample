@@ -30,7 +30,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 /**
  * 过滤高频输出
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#filter
+ * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#debounce
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974472
  */
 @Page(name = "debounce\n过滤高频输出，常用于防抖动、快速点击等场景")
 public class Debounce extends BaseOperatorFragment {

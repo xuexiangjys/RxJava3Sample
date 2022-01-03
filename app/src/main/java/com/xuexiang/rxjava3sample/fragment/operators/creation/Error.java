@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 错误发射器
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#error
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974456
  */
 @Page(name = "error\n错误发射器")
 public class Error extends BaseOperatorFragment {

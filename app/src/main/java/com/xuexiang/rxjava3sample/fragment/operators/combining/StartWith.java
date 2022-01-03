@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 首项插入合并操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Combining-Observables#startWith
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974489
  */
 @Page(name = "startWith\n在数据序列的开头插入一条指定的项")
 public class StartWith extends BaseOperatorFragment {

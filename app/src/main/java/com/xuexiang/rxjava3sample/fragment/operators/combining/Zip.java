@@ -29,6 +29,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 压缩合并操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Combining-Observables#zip
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974491
  */
 @Page(name = "zip\n使用一个函数将多个Observable组合发射出去")
 public class Zip extends BaseOperatorFragment {

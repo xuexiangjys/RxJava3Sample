@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 整数序列发射器
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#range
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974460
  */
 @Page(name = "range\n整数序列发射器")
 public class Range extends BaseOperatorFragment {

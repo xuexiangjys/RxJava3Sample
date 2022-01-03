@@ -39,6 +39,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * 转换创建发射器的操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#from
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974457
  */
 @Page(name = "from\n转换创建发射器")
 public class From extends BaseOperatorFragment {

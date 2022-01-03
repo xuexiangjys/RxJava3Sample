@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 连续变换操作
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#scan
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974469
  */
 @Page(name = "scan\n连续变换操作")
 public class Scan extends BaseOperatorFragment {

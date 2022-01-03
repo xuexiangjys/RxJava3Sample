@@ -29,6 +29,8 @@ import io.reactivex.rxjava3.core.Observable;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#map
  * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974468
+ * <p>
  * Map发出的是值
  */
 @Page(name = "map\n变换操作，适用于一对一转换")

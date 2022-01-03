@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 跳过最后的N项数据
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#skipLast
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974481
  */
 @Page(name = "skipLast\n跳过最后的N项数据, 和takeLast相反")
 public class SkipLast extends BaseOperatorFragment {

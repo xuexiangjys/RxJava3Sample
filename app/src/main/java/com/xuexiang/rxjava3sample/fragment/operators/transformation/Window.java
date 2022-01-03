@@ -31,6 +31,8 @@ import io.reactivex.rxjava3.core.Observable;
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#window
  * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974470
+ * <p>
  * Window和Buffer类似，但不是发射来自原始Observable的数据包，它发射的是Observables，这些Observables中的每一个都发射原始Observable数据的一个子集，最后发射一个onCompleted通知。
  */
 @Page(name = "window\n窗口操作符，根据一定的规则，将发射器分为多段进行发送")

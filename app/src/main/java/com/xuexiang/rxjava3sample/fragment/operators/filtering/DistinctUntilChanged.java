@@ -28,6 +28,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 抑制（过滤掉）连续重复的数据项
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#distinctUntilChanged
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974473
  */
 @Page(name = "distinctUntilChanged\n过滤掉【连续】重复的数据项")
 public class DistinctUntilChanged extends BaseOperatorFragment {

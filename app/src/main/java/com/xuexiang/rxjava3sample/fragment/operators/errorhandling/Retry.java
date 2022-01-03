@@ -30,6 +30,8 @@ import io.reactivex.rxjava3.core.Observable;
  * 重试操作符
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Error-Handling-Operators#retry
+ * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974494
  */
 @Page(name = "retry\n如果原始Observable遇到错误，重新订阅它期望它能正常终止")
 public class Retry extends BaseOperatorFragment {
