@@ -1,0 +1,9 @@
+Observable<Integer> observable = Observable.range(1, 5);
+
+printNormal("发射数组:[1, 2, 3, 4, 5], 判断是否包含数字5，发射结果：");
+Single<Boolean> observable1 = observable.contains(5);
+doSingleSubscribe(observable1);
+
+printNormal("发射数组:[1, 2, 3, 4, 5], 判断是否为空，发射结果：");
+Single<Boolean> observable2 = observable.isEmpty();
+doSingleSubscribe(observable2);

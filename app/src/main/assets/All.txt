@@ -1,0 +1,3 @@
+printNormal("发射数组:[1, 2, 3, 4, 5], 要求每个数都小于6，发射结果：");
+Single<Boolean> observable = Observable.range(1, 5).all(x -> x < 6);
+doSingleSubscribe(observable);

@@ -1,5 +1,10 @@
 printNormal("发射数组:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
-Observable<Integer> observable = Observable.range(1, 10)
-        // 只取前面四个
-        .take(4);
-doSubscribe(observable);
+Observable<Integer> observable = Observable.range(1, 10);
+
+printNormal("take:");
+// 只取前面四个
+doSubscribe(observable.take(4));
+
+printNormal("takeWhile:");
+// 当输出数据x<5时发射
+doSubscribe(observable.takeWhile(x -> x < 5));

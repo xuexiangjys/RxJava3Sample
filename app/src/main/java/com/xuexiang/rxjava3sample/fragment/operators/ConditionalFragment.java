@@ -18,7 +18,9 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.conditional.All;
 import com.xuexiang.rxjava3sample.fragment.operators.conditional.Amb;
+import com.xuexiang.rxjava3sample.fragment.operators.conditional.Contains;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -30,8 +32,10 @@ import com.xuexiang.xpage.annotation.Page;
 public class ConditionalFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[] {
-                Amb.class
+        return new Class[]{
+                Amb.class,
+                All.class,
+                Contains.class
         };
     }
 }
