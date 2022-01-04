@@ -258,6 +258,16 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
         getBinding().logger.logSuccess(logContent);
     }
 
+
+    /**
+     * 添加警告日志
+     *
+     * @param logContent 日志内容
+     */
+    public void printWarning(String logContent) {
+        getBinding().logger.logWarning(logContent);
+    }
+
     /**
      * 添加错误日志
      *

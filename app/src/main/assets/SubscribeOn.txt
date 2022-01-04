@@ -1,0 +1,22 @@
+Observable<String> observable = Observable.create((ObservableOnSubscribe<String>)
+        emitter -> {
+            printNormalThreadInfo("subscribe");
+            emitter.onNext("this is data:");
+            emitter.onComplete();
+        })
+        .subscribeOn(ExecutorUtils.getScheduler("My-Scheduler-1"))
+        .subscribeOn(Schedulers.io())
+        .map(x -> {
+            printWarningThreadInfo("map-1");
+            return x + 1;
+        })
+        .subscribeOn(ExecutorUtils.getScheduler("My-Scheduler-2"))
+        .map(x -> {
+            printWarningThreadInfo("map-2");
+            return x + 2;
+        })
+        .subscribeOn(ExecutorUtils.getScheduler("My-Scheduler-3"))
+        .doOnEach(notification -> printNormalThreadInfo(notification.toString()))
+        .observeOn(AndroidSchedulers.mainThread());
+
+doSubscribe(observable, integer -> printNormalThreadInfo("onNext:" + integer));

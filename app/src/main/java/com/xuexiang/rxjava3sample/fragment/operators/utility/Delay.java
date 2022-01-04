@@ -33,7 +33,7 @@ import io.reactivex.rxjava3.core.Observable;
  * <p>
  * https://www.kancloud.cn/luponu/rxjava_zh/974496
  */
-@Page(name = "delay\n延迟一段指定的时间再发射来自Observable的发射物.")
+@Page(name = "delay\n延迟一段指定的时间再发射来自Observable的发射物")
 public class Delay extends BaseOperatorFragment {
 
     @Override

@@ -1,0 +1,14 @@
+Observable<Integer> observable = Observable.range(1, 2)
+        .doOnSubscribe(disposable -> printNormal("【doOnSubscribe】: isDisposed:" + disposable.isDisposed()))
+        // doOnEach 订阅onNext、onComplete和onError
+        .doOnEach(notification -> printWarning("【doOnEach】: " + notification.toString()))
+        .doOnNext(integer -> printNormal("【doOnNext】: " + integer))
+        .doAfterNext(integer -> printNormal("【doAfterNext】: " + integer))
+        .doOnComplete(() -> printNormal("【doOnComplete】"))
+        .doOnError(error -> printNormal("【doOnError】: " + error.getMessage()))
+        .doOnDispose(() -> printNormal("【doOnDispose】"))
+        .doOnTerminate(() -> printNormal("【doOnTerminate】"))
+        .doAfterTerminate(() -> printNormal("【doAfterTerminate】"))
+        .doFinally(() -> printNormal("【doFinally】"));
+
+doSubscribe(observable);

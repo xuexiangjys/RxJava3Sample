@@ -20,6 +20,9 @@ package com.xuexiang.rxjava3sample.utils;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
+import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
 /**
  * 线程工具类
  *
@@ -34,9 +37,18 @@ public final class ExecutorUtils {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
-
     public static ScheduledExecutorService getSingleExecutor() {
         return sSingleExecutor;
+    }
+
+    /**
+     * 用指定的名称新建一个线程
+     *
+     * @param name 线程名
+     * @return Scheduler
+     */
+    public static Scheduler getScheduler(final String name) {
+        return Schedulers.from(Executors.newCachedThreadPool(runnable -> new Thread(runnable, name)));
     }
 
 }
