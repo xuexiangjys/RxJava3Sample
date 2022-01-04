@@ -42,17 +42,7 @@ public class Retry extends BaseOperatorFragment {
     }
 
     @Override
-    protected void beforeOperation() {
-    }
-
-    @Override
     protected void doOperation(View view) {
-        if (isOperationNotDisposed()) {
-            return;
-        }
-
-        clearLog();
-
         Observable<Long> source = Observable.interval(0, 1, TimeUnit.SECONDS)
                 .flatMap(x -> x >= 2 ? Observable.error(new Exception("Something went wrong!")) : Observable.just(x))
                 // 重试次数不能超过3次

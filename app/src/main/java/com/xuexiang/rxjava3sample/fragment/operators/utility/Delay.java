@@ -42,17 +42,7 @@ public class Delay extends BaseOperatorFragment {
     }
 
     @Override
-    protected void beforeOperation() {
-
-    }
-
-    @Override
     protected void doOperation(View view) {
-        if (isOperationNotDisposed()) {
-            return;
-        }
-
-        clearLog();
         addDisposable(Observable.interval(0, 1, TimeUnit.SECONDS)
                 .takeUntil(x -> x >= 4)
                 .subscribe(value -> printNormal(String.format("%s秒后发送数据...", 5 - value))));

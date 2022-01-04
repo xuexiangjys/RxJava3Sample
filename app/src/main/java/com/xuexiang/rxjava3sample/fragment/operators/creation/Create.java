@@ -51,18 +51,7 @@ public class Create extends BaseOperatorFragment {
     }
 
     @Override
-    protected void beforeOperation() {
-
-    }
-
-    @Override
     protected void doOperation(View view) {
-        if (isOperationNotDisposed()) {
-            return;
-        }
-
-        clearLog();
-
         // 循环发送数据
         ObservableOnSubscribe<String> handler = emitter -> {
             mEmitter = emitter;

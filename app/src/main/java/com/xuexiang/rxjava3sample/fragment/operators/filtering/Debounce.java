@@ -55,23 +55,24 @@ public class Debounce extends BaseOperatorFragment {
 
         Observable<String> source = Observable.create(emitter -> {
             emitter.onNext("A"); // A和B间隔1500ms，大于指定1000ms，所以输出
-            Thread.sleep(1500);
+            threadSafeSleep(1500);
 
             emitter.onNext("B"); // B和C间隔500ms，小于指定1000ms，所以不输出
-            Thread.sleep(500);
+            threadSafeSleep(500);
 
             emitter.onNext("C"); // C和D间隔250ms，小于指定1000ms，所以不输出
-            Thread.sleep(250);
+            threadSafeSleep(250);
 
             emitter.onNext("D"); // D和E间隔2000ms，大于指定1000ms，所以输出
-            Thread.sleep(2000);
+            threadSafeSleep(2000);
 
             emitter.onNext("E"); // E作为最后一个输出，没有间隔，所以一定会输出
             emitter.onComplete();
         });
 
         // 输出A、D、E
-        doSubscribe(source.subscribeOn(Schedulers.io())
-                .debounce(1000, TimeUnit.MILLISECONDS));
+        setDisposable(doSubscribe(source.subscribeOn(Schedulers.io())
+                .debounce(1000, TimeUnit.MILLISECONDS)));
     }
+
 }

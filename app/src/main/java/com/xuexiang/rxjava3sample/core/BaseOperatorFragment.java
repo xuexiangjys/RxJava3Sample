@@ -102,6 +102,9 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
 
     @SingleClick
     protected void handleOperationStart(View v) {
+        if (isOperationNotDisposed()) {
+            return;
+        }
         beforeOperation();
         doOperation(v);
     }
@@ -275,5 +278,12 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
     private String getCodeContent(String url) {
         return ResourceUtils.readStringFromAssert(url);
 
+    }
+
+    protected void threadSafeSleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException ignored) {
+        }
     }
 }

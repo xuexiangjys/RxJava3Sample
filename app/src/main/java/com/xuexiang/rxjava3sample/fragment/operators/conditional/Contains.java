@@ -52,5 +52,10 @@ public class Contains extends BaseOperatorFragment {
         printNormal("发射数组:[1, 2, 3, 4, 5], 判断是否为空，发射结果：");
         Single<Boolean> observable2 = observable.isEmpty();
         doSingleSubscribe(observable2);
+
+        printNormal("发射数组:[1, 2, 3, 4, 5], 取出大于5的数，如果为空的话就发射10，发射结果：");
+        Observable<Integer> observable3 = observable.takeWhile(x -> x > 5)
+                .defaultIfEmpty(10);
+        doSubscribe(observable3);
     }
 }

@@ -42,15 +42,7 @@ public class Timer extends BaseOperatorFragment {
     }
 
     @Override
-    protected void beforeOperation() {
-    }
-
-    @Override
     protected void doOperation(View view) {
-        if (isOperationNotDisposed()) {
-            return;
-        }
-        clearLog();
         printNormal("3秒钟后发射数据...");
 
         Observable<Long> delay = Observable.timer(3, TimeUnit.SECONDS);

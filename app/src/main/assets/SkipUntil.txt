@@ -1,0 +1,4 @@
+printNormal("第一个每300ms发射，第二个每2s发射，发射结果：");
+Observable<Long> observable1 = Observable.interval(300, TimeUnit.MILLISECONDS);
+Observable<Long> observable2 = Observable.interval(2, TimeUnit.SECONDS);
+setDisposable(doSubscribe(observable1.skipUntil(observable2)));

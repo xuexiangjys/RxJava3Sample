@@ -42,15 +42,7 @@ public class Interval extends BaseOperatorFragment {
     }
 
     @Override
-    protected void beforeOperation() {
-    }
-
-    @Override
     protected void doOperation(View view) {
-        if (isOperationNotDisposed()) {
-            return;
-        }
-        clearLog();
         printNormal("每1秒发射数据...");
 
         Observable<Long> clock = Observable.interval(1, TimeUnit.SECONDS);

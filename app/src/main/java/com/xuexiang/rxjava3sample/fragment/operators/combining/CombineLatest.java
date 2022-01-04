@@ -43,12 +43,6 @@ public class CombineLatest extends BaseOperatorFragment {
 
     @Override
     protected void doOperation(View view) {
-        if (isOperationNotDisposed()) {
-            return;
-        }
-
-        clearLog();
-
         printNormal("A每600ms发射，B每350ms发射");
 
         Observable<Long> A = Observable.interval(600, TimeUnit.MILLISECONDS);

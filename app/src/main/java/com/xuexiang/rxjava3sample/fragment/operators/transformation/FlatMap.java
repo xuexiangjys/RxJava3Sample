@@ -57,6 +57,6 @@ public class FlatMap extends BaseOperatorFragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
 
-        doSubscribe(observable);
+        setDisposable(doSubscribe(observable));
     }
 }

@@ -53,6 +53,6 @@ public class SwitchMap extends BaseOperatorFragment {
                             .map(y -> "项目" + y).delay(delay, TimeUnit.SECONDS);
                 }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
-        doSubscribe(observable);
+        setDisposable(doSubscribe(observable));
     }
 }

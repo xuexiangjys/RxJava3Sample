@@ -51,5 +51,9 @@ public class Take extends BaseOperatorFragment {
         printNormal("takeWhile:");
         // 当输出数据x<5时发射
         doSubscribe(observable.takeWhile(x -> x < 5));
+
+        printNormal("takeUntil:");
+        // 当输出数据x<5时发射，类似skipWhile。当数据满足条件时终止发射
+        doSubscribe(observable.takeUntil(x -> x >= 4));
     }
 }
