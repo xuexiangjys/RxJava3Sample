@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 xuexiangjys(xuexiangjys@163.com)
+ * Copyright (C) 2022 xuexiangjys(xuexiangjys@163.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  *
  */
 
-package com.xuexiang.rxjava3sample.fragment.operators.creation;
+package com.xuexiang.rxjava3sample.fragment.operators.utility;
 
 import android.view.View;
 
@@ -27,25 +27,28 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.rxjava3.core.Observable;
 
 /**
- * 创建一个周期发射器
+ * 给Observable发射的数据项附加一个时间戳
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#interval
- * <p>
- * https://www.kancloud.cn/luponu/rxjava_zh/974458
+ * https://www.kancloud.cn/luponu/rxjava_zh/974505
  */
-@Page(name = "interval\n周期发射器")
-public class Interval extends BaseOperatorFragment {
+@Page(name = "timestamp\n给Observable发射的数据项附加一个时间戳")
+public class Timestamp extends BaseOperatorFragment {
 
     @Override
     protected String getOperatorInstruction() {
-        return "创建一个按固定时间间隔发射整数序列的Observable。";
+        return "timestamp给Observable发射的数据项附加一个时间戳。";
     }
 
     @Override
     protected void doOperation(View view) {
-        printNormal("每1秒发射数据...");
-
-        Observable<Long> clock = Observable.interval(0, 1, TimeUnit.SECONDS);
-        setDisposable(doSubscribe(clock));
+        printNormal("每1s周期发射数据：");
+        Observable<Long> original = Observable.interval(0, 1, TimeUnit.SECONDS);
+        setDisposable(doSubscribe(original.timestamp(TimeUnit.SECONDS)));
     }
+
+    @Override
+    protected boolean isContinuousOperation() {
+        return true;
+    }
+
 }

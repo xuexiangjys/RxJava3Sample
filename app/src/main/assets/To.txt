@@ -1,0 +1,16 @@
+printNormal("发射数组：[2, 5, 8, 3, 6]");
+Observable<Integer> original = Observable.just(2, 5, 8, 3, 6);
+
+printNormal("toList:");
+doSingleSubscribe(original.toList());
+
+printNormal("toSortedList:");
+doSingleSubscribe(original.toSortedList());
+
+printNormal("toMap:");
+// Map<K, T>
+doSingleSubscribe(original.toMap(x -> "key" + x));
+
+printNormal("toMultimap:");
+// Map<K, Collection<T>>
+doSingleSubscribe(original.toMultimap(x -> "key" + x % 3));

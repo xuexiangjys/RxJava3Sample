@@ -1,0 +1,4 @@
+printNormal("发射延迟10s，但是超时时间是5s:");
+Observable<Long> original = Observable.timer(10, TimeUnit.SECONDS);
+
+setDisposable(doSubscribe(original.timeout(5, TimeUnit.SECONDS)));

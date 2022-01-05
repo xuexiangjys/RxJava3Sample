@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 xuexiangjys(xuexiangjys@163.com)
+ * Copyright (C) 2022 xuexiangjys(xuexiangjys@163.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  *
  */
 
-package com.xuexiang.rxjava3sample.fragment.operators.creation;
+package com.xuexiang.rxjava3sample.fragment.operators.utility;
 
 import android.view.View;
 
@@ -27,25 +27,24 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.rxjava3.core.Observable;
 
 /**
- * 创建一个周期发射器
+ * 指定时长仍没有发射数据，就发一个错误通知
  * <p>
- * https://github.com/ReactiveX/RxJava/wiki/Creating-Observables#interval
- * <p>
- * https://www.kancloud.cn/luponu/rxjava_zh/974458
+ * https://www.kancloud.cn/luponu/rxjava_zh/974504
  */
-@Page(name = "interval\n周期发射器")
-public class Interval extends BaseOperatorFragment {
+@Page(name = "timeout\n指定时长仍没有发射数据，就发一个错误通知")
+public class Timeout extends BaseOperatorFragment {
 
     @Override
     protected String getOperatorInstruction() {
-        return "创建一个按固定时间间隔发射整数序列的Observable。";
+        return "对原始Observable的一个镜像，如果过了一个指定的时长仍没有发射数据，它会发一个错误通知。";
     }
 
     @Override
     protected void doOperation(View view) {
-        printNormal("每1秒发射数据...");
+        printNormal("发射延迟10s，但是超时时间是5s:");
+        Observable<Long> original = Observable.timer(10, TimeUnit.SECONDS);
 
-        Observable<Long> clock = Observable.interval(0, 1, TimeUnit.SECONDS);
-        setDisposable(doSubscribe(clock));
+        setDisposable(doSubscribe(original.timeout(5, TimeUnit.SECONDS)));
     }
+
 }

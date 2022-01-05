@@ -21,6 +21,10 @@ import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.rxjava3sample.fragment.operators.utility.Delay;
 import com.xuexiang.rxjava3sample.fragment.operators.utility.Do;
 import com.xuexiang.rxjava3sample.fragment.operators.utility.SubscribeOn;
+import com.xuexiang.rxjava3sample.fragment.operators.utility.TimeInterval;
+import com.xuexiang.rxjava3sample.fragment.operators.utility.Timeout;
+import com.xuexiang.rxjava3sample.fragment.operators.utility.Timestamp;
+import com.xuexiang.rxjava3sample.fragment.operators.utility.To;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -33,10 +37,14 @@ public class ObservableUtilityFragment extends BaseContainerFragment {
 
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[] {
+        return new Class[]{
                 SubscribeOn.class,
                 Delay.class,
-                Do.class
+                Do.class,
+                To.class,
+                Timeout.class,
+                Timestamp.class,
+                TimeInterval.class
         };
     }
 }

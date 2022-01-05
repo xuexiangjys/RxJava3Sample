@@ -58,9 +58,4 @@ public class CombineLatest extends BaseOperatorFragment {
     protected boolean isContinuousOperation() {
         return true;
     }
-
-    @Override
-    protected void stopOperation(View view) {
-        cancelSubscribe();
-    }
 }

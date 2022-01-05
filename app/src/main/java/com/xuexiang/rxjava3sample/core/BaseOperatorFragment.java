@@ -174,7 +174,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      * 停止操作符操作
      */
     protected void stopOperation(View view) {
-
+        cancelSubscribe();
     }
 
     /**
