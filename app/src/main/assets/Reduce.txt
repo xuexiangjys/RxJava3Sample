@@ -1,0 +1,5 @@
+doMaybeSubscribe(Observable.range(1, 5)
+        .reduce((product, x) -> {
+            printNormal("process " + product + " * " + x);
+            return product * x;
+        }));

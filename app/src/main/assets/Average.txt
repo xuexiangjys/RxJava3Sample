@@ -1,0 +1,8 @@
+printNormal("求数组[4, 9, 8, 13, 43, 5]的平均值：");
+Observable<Integer> numbers = Observable.just(4, 9, 8, 13, 43, 5);
+
+printNormal("averageFloat：");
+doSubscribe(MathObservable.averageFloat(numbers));
+
+printNormal("averageDouble：");
+doSubscribe(MathObservable.averageDouble(numbers));

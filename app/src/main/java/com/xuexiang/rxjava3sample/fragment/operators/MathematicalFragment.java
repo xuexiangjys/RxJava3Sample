@@ -18,8 +18,12 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.mathematical.Average;
+import com.xuexiang.rxjava3sample.fragment.operators.mathematical.Count;
 import com.xuexiang.rxjava3sample.fragment.operators.mathematical.Max;
 import com.xuexiang.rxjava3sample.fragment.operators.mathematical.Min;
+import com.xuexiang.rxjava3sample.fragment.operators.mathematical.Reduce;
+import com.xuexiang.rxjava3sample.fragment.operators.mathematical.Sum;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -32,8 +36,12 @@ public class MathematicalFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
+                Reduce.class,
                 Max.class,
-                Min.class
+                Min.class,
+                Average.class,
+                Sum.class,
+                Count.class
         };
     }
 }
