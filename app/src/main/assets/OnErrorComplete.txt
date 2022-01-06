@@ -1,0 +1,5 @@
+Completable.fromAction(() -> {
+    throw new IOException();
+}).onErrorComplete(error -> error instanceof IOException)
+        .subscribe(() -> printSuccess("onComplete, IOException was ignored!"),
+                error -> printError("onError should not be printed!"));

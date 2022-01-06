@@ -1,0 +1,9 @@
+printNormal("出现错误直接返回404:");
+Observable<Integer> original = Observable.just("12", "A2", "234")
+        .map(Integer::parseInt);
+
+// 和onErrorResumeNext不同的是，onErrorReturn直接返回数据
+doSubscribe(original.onErrorReturn(throwable -> {
+    printError(throwable.getMessage());
+    return 404;
+}));

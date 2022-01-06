@@ -1,0 +1,16 @@
+printNormal("出现错误发射404:");
+Observable<Integer> original = Observable.just("12", "A2", "234")
+        .map(Integer::parseInt);
+
+doSubscribe(original.onErrorResumeNext(throwable -> {
+    printError(throwable.getMessage());
+    return Observable.just(404);
+}));
+
+printNormal("出现错误自定义发射器:");
+doSubscribe(original.onErrorResumeWith(observer -> {
+    observer.onNext(123);
+    observer.onNext(234);
+    observer.onNext(345);
+    observer.onComplete();
+}));

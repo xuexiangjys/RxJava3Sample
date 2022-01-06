@@ -18,6 +18,9 @@
 package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
+import com.xuexiang.rxjava3sample.fragment.operators.errorhandling.OnErrorResumeNext;
+import com.xuexiang.rxjava3sample.fragment.operators.errorhandling.OnErrorComplete;
+import com.xuexiang.rxjava3sample.fragment.operators.errorhandling.OnErrorReturn;
 import com.xuexiang.rxjava3sample.fragment.operators.errorhandling.Retry;
 import com.xuexiang.xpage.annotation.Page;
 
@@ -31,7 +34,10 @@ public class ErrorHandlingFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
-                Retry.class
+                Retry.class,
+                OnErrorResumeNext.class,
+                OnErrorReturn.class,
+                OnErrorComplete.class
         };
     }
 }

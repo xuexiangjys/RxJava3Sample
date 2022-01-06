@@ -38,7 +38,7 @@ public class Retry extends BaseOperatorFragment {
 
     @Override
     protected String getOperatorInstruction() {
-        return "Retry操作符不会将原始Observable的onError通知传递给观察者，它会订阅这个Observable，再给它一次机会无错误地完成它的数据序列。Retry总是传递onNext通知给观察者，由于重新订阅，可能会造成数据项重复。";
+        return "retry操作符不会将原始Observable的onError通知传递给观察者，它会订阅这个Observable，再给它一次机会无错误地完成它的数据序列。Retry总是传递onNext通知给观察者，由于重新订阅，可能会造成数据项重复。";
     }
 
     @Override
@@ -49,5 +49,7 @@ public class Retry extends BaseOperatorFragment {
                 .retry((retryCount, error) -> retryCount < 3);
 
         setDisposable(doSubscribe(source));
+
+
     }
 }
