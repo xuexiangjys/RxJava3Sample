@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.creation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974456
  */
 @Page(name = "error\n错误发射器")
-public class Error extends BaseOperatorFragment {
+public class Error extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "创建一个不发射数据以一个错误终止的Observable";
     }
 

@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.conditional;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Single;
  * https://www.kancloud.cn/luponu/rxjava_zh/974509
  */
 @Page(name = "all\n判断是否所有的数据项都满足某个条件")
-public class All extends BaseOperatorFragment {
+public class All extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "传递一个谓词函数给all操作符，这个函数接受原始Observable发射的数据，根据计算返回一个布尔值。all返回一个只发射一个单个布尔值的Observable，如果原始Observable正常终止并且每一项数据都满足条件，就返回true；如果原始Observable的任何一项数据不满足条件就返回false。";
     }
 

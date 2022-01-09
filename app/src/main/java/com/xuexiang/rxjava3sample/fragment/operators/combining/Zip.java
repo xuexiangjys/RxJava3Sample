@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.combining;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -33,10 +33,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974491
  */
 @Page(name = "zip\n使用一个函数将多个Observable组合发射出去")
-public class Zip extends BaseOperatorFragment {
+public class Zip extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "zip操作符返回一个Observable，它使用这个函数按顺序结合两个或多个Observables发射的数据项，然后它发射这个函数返回的结果。它按照严格的顺序应用这个函数。它只发射与发射数据项最少的那个Observable一样多的数据。";
     }
 

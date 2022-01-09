@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.combining;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974486
  */
 @Page(name = "combineLatest\n每次发射合并其他Observables最近一次数据")
-public class CombineLatest extends BaseOperatorFragment {
+public class CombineLatest extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "当两个Observables中的任何一个发射了数据时，使用一个函数结合每个Observable发射的最近数据项，并且基于这个函数的结果发射数据。";
     }
 

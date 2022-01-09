@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.utility;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974504
  */
 @Page(name = "timeout\n指定时长仍没有发射数据，就发一个错误通知")
-public class Timeout extends BaseOperatorFragment {
+public class Timeout extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "对原始Observable的一个镜像，如果过了一个指定的时长仍没有发射数据，它会发一个错误通知。";
     }
 

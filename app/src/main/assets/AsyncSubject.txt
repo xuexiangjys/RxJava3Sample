@@ -1,0 +1,14 @@
+LogObserver<Integer> first = new LogObserver<>(this, "First");
+LogObserver<Integer> second = new LogObserver<>(this, "Second");
+
+doSubscribe(mAsyncSubject, first);
+
+mAsyncSubject.onNext(1);
+mAsyncSubject.onNext(2);
+mAsyncSubject.onNext(3);
+
+doSubscribe(mAsyncSubject, second);
+
+mAsyncSubject.onNext(4);
+mAsyncSubject.onNext(5);
+mAsyncSubject.onComplete();

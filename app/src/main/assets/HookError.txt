@@ -1,0 +1,11 @@
+// 进行全局的异常捕获
+RxJavaPlugins.setErrorHandler(e -> printError("Hook error:" + e.getMessage()));
+
+// 可以Hook
+Observable.just("A2").map(Integer::parseInt)
+        .subscribe(x -> printNormal("onNext:" + x));
+
+// 不可以Hook
+Observable.just("B5").map(Integer::parseInt)
+        .subscribe(x -> printNormal("onNext:" + x),
+                e -> printError("onError:" + e.getMessage()));

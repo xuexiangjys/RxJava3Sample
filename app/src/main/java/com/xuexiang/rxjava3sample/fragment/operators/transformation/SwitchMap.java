@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.transformation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -36,10 +36,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * https://www.kancloud.cn/luponu/rxjava_zh/974466
  */
 @Page(name = "switchMap\n平铺转换操作，与flatMap相比，仅返回最后发出Observable")
-public class SwitchMap extends BaseOperatorFragment {
+public class SwitchMap extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "switchMap和flatMap一样可以将源可观察性展平，但仅返回最后发出的单个可观察性。";
     }
 

@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.utility;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.rxjava3sample.utils.ExecutorUtils;
 import com.xuexiang.xpage.annotation.Page;
 
@@ -36,10 +36,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * https://www.kancloud.cn/luponu/rxjava_zh/974502
  */
 @Page(name = "subscribeOn\n指定Observable自身在哪个调度器上执行")
-public class SubscribeOn extends BaseOperatorFragment {
+public class SubscribeOn extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "你可以使用subscribeOn操作符指定Observable在一个特定的调度器上运转。\n" +
                 "subscribeOn()改变调用它之前代码的线程。\n" +
                 "observeOn()改变调用它之后代码的线程";

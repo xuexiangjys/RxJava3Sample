@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.mathematical;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import hu.akarnokd.rxjava3.math.MathObservable;
@@ -33,10 +33,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974515
  */
 @Page(name = "average\n计算发射数字的平均值并发射结果")
-public class Average extends BaseOperatorFragment {
+public class Average extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "average操作符操作符一个发射数字的Observable，并发射单个值：原始Observable发射的数字序列的平均值。";
     }
 

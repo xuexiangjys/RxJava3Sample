@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.transformation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.List;
@@ -36,10 +36,10 @@ import io.reactivex.rxjava3.core.Observable;
  * Window和Buffer类似，但不是发射来自原始Observable的数据包，它发射的是Observables，这些Observables中的每一个都发射原始Observable数据的一个子集，最后发射一个onCompleted通知。
  */
 @Page(name = "window\n窗口操作符，根据一定的规则，将发射器分为多段进行发送")
-public class Window extends BaseOperatorFragment {
+public class Window extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "定期将来自原始Observable的数据分解为一个Observable窗口，发射这些窗口，而不是每次发射一项数据";
     }
 

@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.utility;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974505
  */
 @Page(name = "timestamp\n给Observable发射的数据项附加一个时间戳")
-public class Timestamp extends BaseOperatorFragment {
+public class Timestamp extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "timestamp给Observable发射的数据项附加一个时间戳。";
     }
 

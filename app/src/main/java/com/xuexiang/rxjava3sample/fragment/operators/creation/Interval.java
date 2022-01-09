@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.creation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974458
  */
 @Page(name = "interval\n周期发射器")
-public class Interval extends BaseOperatorFragment {
+public class Interval extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "创建一个按固定时间间隔发射整数序列的Observable。";
     }
 

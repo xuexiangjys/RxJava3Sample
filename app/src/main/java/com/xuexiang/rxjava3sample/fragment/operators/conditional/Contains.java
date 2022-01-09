@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.conditional;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -33,10 +33,10 @@ import io.reactivex.rxjava3.core.Single;
  * https://www.kancloud.cn/luponu/rxjava_zh/974509
  */
 @Page(name = "contains\n判定一个Observable是否发射一个特定的值")
-public class Contains extends BaseOperatorFragment {
+public class Contains extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "给contains传一个指定的值，如果原始Observable发射了那个值，它返回的Observable将发射true，否则发射false。\n" +
                 "相关的一个操作符isEmpty用于判定原始Observable是否没有发射任何数据。";
     }

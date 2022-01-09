@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.conditional;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974513
  */
 @Page(name = "takeUntil\n当第二个Observable发射数据时终止发射")
-public class TakeUntil extends BaseOperatorFragment {
+public class TakeUntil extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "takeUntil订阅并开始发射原始Observable，它还监视你提供的第二个Observable。如果第二个Observable发射了一项数据或者发射了一个终止通知，takeUntil返回的Observable会停止发射原始Observable并终止。";
     }
 

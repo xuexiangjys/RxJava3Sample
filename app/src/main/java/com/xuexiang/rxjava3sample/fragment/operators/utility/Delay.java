@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.utility;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974496
  */
 @Page(name = "delay\n延迟一段指定的时间再发射来自Observable的发射物")
-public class Delay extends BaseOperatorFragment {
+public class Delay extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "delay操作符让原始Observable在发射每项数据之前都暂停一段指定的时间段。";
     }
 

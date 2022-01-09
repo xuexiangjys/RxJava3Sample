@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.utility;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974503
  */
 @Page(name = "timeInterval\n将一个发射数据的Observable转换为发射那些数据发射时间间隔的Observable")
-public class TimeInterval extends BaseOperatorFragment {
+public class TimeInterval extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "timeInterval操作符拦截原始Observable发射的数据项，替换为发射表示相邻发射物时间间隔的对象。";
     }
 

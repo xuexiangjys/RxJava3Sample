@@ -44,9 +44,12 @@ import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
- * 操作符基础类
+ * RxJava抽象基类
+ *
+ * @author xuexiang
+ * @since 2022/1/9 2:00 下午
  */
-public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplateBinding> {
+public abstract class AbstractRxJavaFragment extends BaseFragment<FragmentTemplateBinding> implements ILogPrinter {
 
     protected Disposable disposable;
 
@@ -67,7 +70,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
 
     @Override
     protected void initViews() {
-        getBinding().tvInstruction.setText(getOperatorInstruction());
+        getBinding().tvInstruction.setText(getInstruction());
         addDisposable(Observable.just(getOperatorName())
                 .map(x -> String.format("%s.txt", x))
                 .map(this::getCodeContent)
@@ -117,36 +120,41 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
     }
 
     @NonNull
-    protected <T> Disposable doSubscribe(Observable<T> observable) {
+    protected <T> Disposable doSubscribe(@NonNull Observable<T> observable) {
         return observable.subscribe(item -> printNormal(StringUtils.toString(item)), error -> printError(error.getMessage()),
                 () -> printSuccess("Completed!"));
     }
 
     @NonNull
-    protected <T> Disposable doSubscribe(Observable<T> observable, @NonNull Consumer<? super T> onNext) {
+    protected <T> Disposable doSubscribe(@NonNull Observable<T> observable, @NonNull Consumer<? super T> onNext) {
         return observable.subscribe(onNext, error -> printError(error.getMessage()),
                 () -> printSuccess("Completed!"));
     }
 
     @NonNull
-    protected <T> Disposable doSubscribe(Observable<T> observable, @NonNull Consumer<? super T> onNext, @NonNull Action onComplete) {
+    protected <T> Disposable doSubscribe(@NonNull Observable<T> observable, @NonNull Consumer<? super T> onNext, @NonNull Action onComplete) {
         return observable.subscribe(onNext, error -> printError(error.getMessage()), onComplete);
     }
 
     @NonNull
-    protected <T> Disposable doSingleSubscribe(Single<T> single) {
+    protected <T> Disposable doSingleSubscribe(@NonNull Single<T> single) {
         return single.subscribe(item -> printNormal(StringUtils.toString(item)), error -> printError(error.getMessage()));
     }
 
     @NonNull
-    protected <T> Disposable doMaybeSubscribe(Maybe<T> maybe) {
+    protected <T> Disposable doMaybeSubscribe(@NonNull Maybe<T> maybe) {
         return maybe.subscribe(item -> printNormal(StringUtils.toString(item)), error -> printError(error.getMessage()),
                 () -> printSuccess("Completed!"));
     }
 
     @NonNull
-    protected Disposable doCompletableSubscribe(Completable completable) {
+    protected Disposable doCompletableSubscribe(@NonNull Completable completable) {
         return completable.subscribe(() -> printSuccess("Completed!"), error -> printError(error.getMessage()));
+    }
+
+    protected <T> void doSubscribe(@NonNull Observable<T> observable, @NonNull LogObserver<T> observer) {
+        observable.subscribe(observer);
+        addDisposable(observer);
     }
 
     /**
@@ -155,15 +163,16 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      * @return 操作符的名称
      */
     protected String getOperatorName() {
-        return getSimpleName(this);
+        String name = getSimpleName(this);
+        return name.replaceAll("Fragment", "");
     }
 
     /**
-     * 获取操作符的简介
+     * 获取简介
      *
-     * @return 操作符的简介
+     * @return 简介
      */
-    protected abstract String getOperatorInstruction();
+    protected abstract String getInstruction();
 
     /**
      * 执行操作符操作
@@ -238,6 +247,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      *
      * @param logContent 日志内容
      */
+    @Override
     public void printNormal(String logContent) {
         getBinding().logger.logNormal(logContent);
     }
@@ -245,6 +255,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
     /**
      * 添加分割线
      */
+    @Override
     public void println() {
         getBinding().logger.logNormal("------------------------------------------------------------");
     }
@@ -254,6 +265,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      *
      * @param logContent 日志内容
      */
+    @Override
     public void printSuccess(String logContent) {
         getBinding().logger.logSuccess(logContent);
     }
@@ -264,6 +276,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      *
      * @param logContent 日志内容
      */
+    @Override
     public void printWarning(String logContent) {
         getBinding().logger.logWarning(logContent);
     }
@@ -273,6 +286,7 @@ public abstract class BaseOperatorFragment extends BaseFragment<FragmentTemplate
      *
      * @param logContent 日志内容
      */
+    @Override
     public void printError(String logContent) {
         getBinding().logger.logError(logContent);
     }

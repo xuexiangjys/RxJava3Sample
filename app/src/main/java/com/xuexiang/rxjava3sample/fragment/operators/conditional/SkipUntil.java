@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.conditional;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -35,10 +35,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974513
  */
 @Page(name = "skipUntil\n当第二个Observable发射数据时开始发射")
-public class SkipUntil extends BaseOperatorFragment {
+public class SkipUntil extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "skipUntil订阅原始的Observable，但是忽略它的发射物，直到第二个Observable发射了一项数据那一刻，它开始发射原始Observable。";
     }
 

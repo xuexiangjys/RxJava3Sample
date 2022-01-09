@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.errorhandling;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -40,10 +40,10 @@ import io.reactivex.rxjava3.core.Observable;
  * onExceptionResumeNext: 让Observable在遇到错误时继续发射后面的数据项。
  */
 @Page(name = "onErrorResumeNext\n发射器在遇到错误时，发射新的Observable")
-public class OnErrorResumeNext extends BaseOperatorFragment {
+public class OnErrorResumeNext extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "onErrorResumeNext方法返回一个镜像原有Observable行为的新Observable，后者会忽略前者的onError调用，不会将错误传递给观察者，作为替代，它会开始镜像另一个，备用的Observable。";
     }
 

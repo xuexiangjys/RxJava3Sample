@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.filtering;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -35,10 +35,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * https://www.kancloud.cn/luponu/rxjava_zh/974472
  */
 @Page(name = "debounce\n过滤高频输出，常用于防抖动、快速点击等场景")
-public class Debounce extends BaseOperatorFragment {
+public class Debounce extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "debounce操作符会过滤掉发射速率过快的数据项。";
     }
 

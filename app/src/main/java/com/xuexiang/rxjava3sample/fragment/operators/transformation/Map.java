@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.transformation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Observable;
  * Map发出的是值
  */
 @Page(name = "map\n变换操作，适用于一对一转换")
-public class Map extends BaseOperatorFragment {
+public class Map extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "对Observable发射的每一项数据应用一个函数，执行变换操作";
     }
 

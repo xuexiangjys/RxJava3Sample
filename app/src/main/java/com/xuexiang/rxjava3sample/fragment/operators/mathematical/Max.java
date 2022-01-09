@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.mathematical;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import hu.akarnokd.rxjava3.math.MathObservable;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974516
  */
 @Page(name = "max\n求序列最大值并发射")
-public class Max extends BaseOperatorFragment {
+public class Max extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "max操作符可以计算出序列中的最大值并进行发射。";
     }
 

@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.errorhandling;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -33,10 +33,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974493
  */
 @Page(name = "onErrorReturn\n发射器在遇到错误时，发射一个特殊的项并且正常终止")
-public class OnErrorReturn extends BaseOperatorFragment {
+public class OnErrorReturn extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "onErrorReturn方法返回一个镜像原有Observable行为的新Observable，后者会忽略前者的onError调用，不会将错误传递给观察者，作为替代，它会发发射一个特殊的项并调用观察者的onCompleted方法。";
     }
 

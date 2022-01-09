@@ -1,0 +1,47 @@
+// 线程安全
+if (mSafeObserver == null) {
+    mSafeObserver = new LogObserver<Integer>(this, "SafeSubject") {
+        @Override
+        public void onNext(@NonNull Integer value) {
+            String log = getTagPrefix() + "==onNext==>value:" + value + ", position:" + mPosition + ", threadId:" + Thread.currentThread().getId();
+            printNormal(log);
+            mPosition++;
+        }
+    };
+    doSubscribe(mSerializedSubject, mSafeObserver);
+}
+
+mPosition = 0;
+
+for (int i = 0; i < 6; i++) {
+    final int finalValue = i;
+    new Thread() {
+        public void run() {
+            mSerializedSubject.onNext(finalValue);
+        }
+    }.start();
+}
+
+// 非线程安全
+if (mUnSafeObserver == null) {
+    mUnSafeObserver = new LogObserver<Integer>(this, "UnSafeSubject") {
+        @Override
+        public void onNext(@NonNull Integer value) {
+            String log = getTagPrefix() + "==onNext==>value:" + value + ", position:" + mPosition + ", threadId:" + Thread.currentThread().getId();
+            printNormal(log);
+            mPosition++;
+        }
+    };
+    doSubscribe(mSubject, mUnSafeObserver);
+}
+
+mPosition = 0;
+
+for (int i = 0; i < 6; i++) {
+    final int finalValue = i;
+    new Thread() {
+        public void run() {
+            mSubject.onNext(finalValue);
+        }
+    }.start();
+}

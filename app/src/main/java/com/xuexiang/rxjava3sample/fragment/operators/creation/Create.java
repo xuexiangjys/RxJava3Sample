@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.creation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.rxjava3sample.utils.ExecutorUtils;
 import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
@@ -39,14 +39,14 @@ import io.reactivex.rxjava3.core.ObservableOnSubscribe;
  * https://www.kancloud.cn/luponu/rxjava_zh/974454
  */
 @Page(name = "create\n自定义发射器")
-public class Create extends BaseOperatorFragment {
+public class Create extends AbstractRxJavaFragment {
 
     private ObservableEmitter<String> mEmitter;
 
     private int mCount = 1;
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "使用一个函数从头开始创建一个Observable";
     }
 

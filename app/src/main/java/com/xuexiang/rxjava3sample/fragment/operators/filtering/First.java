@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.filtering;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Maybe;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Single;
  * https://www.kancloud.cn/luponu/rxjava_zh/974476
  */
 @Page(name = "first\n只取第一项数据进行发射")
-public class First extends BaseOperatorFragment {
+public class First extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "first操作符只发射第一项（或者满足某个条件的第一项）数据。";
     }
 

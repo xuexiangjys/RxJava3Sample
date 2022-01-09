@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.creation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974463
  */
 @Page(name = "timer\n延迟发射器")
-public class Timer extends BaseOperatorFragment {
+public class Timer extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "创建一个Observable，它在一个给定的延迟后发射一个特殊的值。";
     }
 

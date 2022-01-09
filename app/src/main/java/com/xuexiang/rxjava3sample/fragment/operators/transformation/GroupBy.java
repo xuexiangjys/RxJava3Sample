@@ -19,12 +19,10 @@ package com.xuexiang.rxjava3sample.fragment.operators.transformation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.observables.GroupedObservable;
 
 /**
@@ -35,10 +33,10 @@ import io.reactivex.rxjava3.observables.GroupedObservable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974467
  */
 @Page(name = "groupBy\n分组操作符")
-public class GroupBy extends BaseOperatorFragment {
+public class GroupBy extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "将一个Observable按某个规则进行分组。分拆为一些Observables集合，它们中的每一个发射原始Observable的一个子集";
     }
 

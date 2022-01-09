@@ -20,7 +20,6 @@ package com.xuexiang.rxjava3sample.fragment;
 import android.view.KeyEvent;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
-import com.xuexiang.rxjava3sample.fragment.operators.OperatorsFragment;
 import com.xuexiang.rxjava3sample.utils.XToastUtils;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xpage.enums.CoreAnim;
@@ -39,6 +38,8 @@ public class MainFragment extends BaseContainerFragment implements ClickUtils.On
     protected Class[] getPagesClasses() {
         return new Class[]{
                 OperatorsFragment.class,
+                SubjectsFragment.class,
+                PluginsFragment.class
         };
     }
 

@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.errorhandling;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.io.IOException;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Completable;
  * https://github.com/ReactiveX/RxJava/wiki/Error-Handling-Operators#onerrorcomplete
  */
 @Page(name = "onErrorComplete\n发射器在遇到错误时，可以指定某类错误可以正常执行完毕")
-public class OnErrorComplete extends BaseOperatorFragment {
+public class OnErrorComplete extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "发射器在遇到错误时，可以指定某类错误可以正常执行完毕。";
     }
 

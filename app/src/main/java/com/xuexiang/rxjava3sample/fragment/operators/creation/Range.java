@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.creation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974460
  */
 @Page(name = "range\n整数序列发射器")
-public class Range extends BaseOperatorFragment {
+public class Range extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "创建一个发射特定整数序列的Observable";
     }
 

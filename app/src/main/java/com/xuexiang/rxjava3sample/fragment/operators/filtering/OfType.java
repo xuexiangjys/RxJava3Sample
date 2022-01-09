@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.filtering;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -30,10 +30,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#ofType
  */
 @Page(name = "ofType\n类型过滤操作符，过滤出特定类型")
-public class OfType extends BaseOperatorFragment {
+public class OfType extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "ofType可以过滤出特定类型的数据项并发出。";
     }
 

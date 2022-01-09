@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.filtering;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Maybe;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Single;
  * https://www.kancloud.cn/luponu/rxjava_zh/974478
  */
 @Page(name = "last\n只取最后一项数据进行发射")
-public class Last extends BaseOperatorFragment {
+public class Last extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "last操作符只发射最后一项（或者满足某个条件的最后一项）数据。";
     }
 

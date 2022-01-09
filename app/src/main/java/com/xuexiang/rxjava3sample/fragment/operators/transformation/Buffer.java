@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.transformation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.List;
@@ -34,10 +34,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974465
  */
 @Page(name = "buffer\n缓冲池操作符")
-public class Buffer extends BaseOperatorFragment {
+public class Buffer extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "定期收集Observable的数据放进一个数据包裹，然后发射这些数据包裹，而不是一次发射一个值。";
     }
 

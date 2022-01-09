@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.filtering;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974473
  */
 @Page(name = "distinctUntilChanged\n过滤掉【连续】重复的数据项")
-public class DistinctUntilChanged extends BaseOperatorFragment {
+public class DistinctUntilChanged extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "distinctUntilChanged只是过滤掉连续重复的元素,不连续重复的是不过滤的。";
     }
 

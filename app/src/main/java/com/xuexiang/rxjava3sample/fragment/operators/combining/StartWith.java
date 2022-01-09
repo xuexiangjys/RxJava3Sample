@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.combining;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974489
  */
 @Page(name = "startWith\n在数据序列的开头插入一条指定的项")
-public class StartWith extends BaseOperatorFragment {
+public class StartWith extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "如果你想要一个Observable在发射数据之前先发射一个指定的数据序列，可以使用startWith操作符。";
     }
 

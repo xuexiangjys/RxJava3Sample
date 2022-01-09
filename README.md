@@ -7,10 +7,22 @@ RxJava3使用演示
 类型	| 描述
 |---|---
 Observable<T> | 能够发射0或n个数据，并以成功或错误事件终止。
-Flowable<T> | 能够发射0或n个数据，并以成功或错误事件终止。支持Backpressure，可以控制数据源发射的速度。
+Flowable<T> | 能够发射0或n个数据，并以成功或错误事件终止。支持Backpressure，可以控制数据源发射的速度。可由Observable转化而来。
 Single<T> | 只发射单个数据或错误事件。只处理 onNext 和 onError 事件，没有onComplete。
 Completable | 它从来不发射数据，只处理 onComplete 和 onError 事件。可以看成是Rx的Runnable。
 Maybe<T> | 能够发射0或者1个数据，要么成功，要么失败。类似Single和Completable的结合。如果处理了onNext 和 onError，那么就不处理onComplete。
+
+## Subject
+
+> Subject 既是 Observable 又是 Observer(Subscriber)
+
+类型	| 描述
+|---|---
+PublishSubject | 只能接收到订阅之后的所有数据
+BehaviorSubject | 接收到订阅前的最后一条数据和订阅后的所有数据
+AsyncSubject | 只接收到最后一条数据
+ReplaySubject | 接收订阅前和订阅后的所有数据
+SerializedSubject | 线程安全的Subject，可由其他Subject调用toSerialized转换而来
 
 ## 常用操作符
 

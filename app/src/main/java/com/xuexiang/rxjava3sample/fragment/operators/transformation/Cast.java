@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.transformation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -30,10 +30,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://github.com/ReactiveX/RxJava/wiki/Transforming-Observables#cast
  */
 @Page(name = "cast\n类型转换操作符")
-public class Cast extends BaseOperatorFragment {
+public class Cast extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "cast将发射出去的数据转换成指定类型, 如果类型无法转换将会报错终止。";
     }
 

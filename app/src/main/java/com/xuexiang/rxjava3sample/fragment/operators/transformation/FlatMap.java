@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.transformation;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -38,10 +38,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * FlatMap发出Observables而不是值
  */
 @Page(name = "flatMap\n平铺转换操作，适用于一对多，多对多的转换")
-public class FlatMap extends BaseOperatorFragment {
+public class FlatMap extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "flatMap将一个发射数据的Observable变换为多个Observables，然后将它们发射的数据合并后放进一个单独的Observable";
     }
 

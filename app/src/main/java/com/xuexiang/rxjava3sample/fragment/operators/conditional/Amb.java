@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.conditional;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974509
  */
 @Page(name = "amb\n多个Observable, 只让第一个发射数据的Observable发射全部数据")
-public class Amb extends BaseOperatorFragment {
+public class Amb extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "给定多个Observable，只让第一个发射数据的Observable发射全部数据。";
     }
 

@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.mathematical;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import hu.akarnokd.rxjava3.math.MathObservable;
@@ -33,10 +33,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974516
  */
 @Page(name = "sum\n计算Observable发射的数值的和并发射这个和")
-public class Sum extends BaseOperatorFragment {
+public class Sum extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "sum操作符操作一个发射数值的Observable，仅发射单个值：原始Observable所有数值的和。";
     }
 

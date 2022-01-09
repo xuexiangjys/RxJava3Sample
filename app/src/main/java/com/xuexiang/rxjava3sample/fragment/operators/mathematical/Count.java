@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.mathematical;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974516
  */
 @Page(name = "count\n求发射器发射数据项的数量")
-public class Count extends BaseOperatorFragment {
+public class Count extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "count操作符将一个Observable转换成一个发射单个值的Observable，这个值表示原始Observable发射的数据的数量。";
     }
 

@@ -19,7 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.combining;
 
 import android.view.View;
 
-import com.xuexiang.rxjava3sample.core.BaseOperatorFragment;
+import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -32,10 +32,10 @@ import io.reactivex.rxjava3.core.Observable;
  * https://www.kancloud.cn/luponu/rxjava_zh/974488
  */
 @Page(name = "merge\n将多个Observable合并为一个")
-public class Merge extends BaseOperatorFragment {
+public class Merge extends AbstractRxJavaFragment {
 
     @Override
-    protected String getOperatorInstruction() {
+    protected String getInstruction() {
         return "merge操作符将多个Observables的输出合并，就好像它们是一个单个的Observable一样。";
     }
 
