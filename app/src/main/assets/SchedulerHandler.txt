@@ -1,0 +1,26 @@
+Observable<String> observable = Observable.create((ObservableOnSubscribe<String>)
+        emitter -> {
+            printNormalThreadInfo("subscribe");
+            emitter.onNext("this is data:");
+            emitter.onComplete();
+        })
+        // 第一个subscribeOn直到第一个observeOn都生效 My-Scheduler-1
+        .subscribeOn(ExecutorUtils.getScheduler("My-Scheduler-1"))
+        // 第二个subscribeOn不生效
+        .subscribeOn(Schedulers.io())
+        // observeOn生效 My-Scheduler-2
+        .observeOn(ExecutorUtils.getScheduler("My-Scheduler-2"))
+        .map(x -> {
+            printWarningThreadInfo("map-1");
+            return x + 1;
+        })
+        // 由于设置了observeOn，所以第三个subscribeOn不生效
+        .subscribeOn(ExecutorUtils.getScheduler("My-Scheduler-3"))
+        .map(x -> {
+            printWarningThreadInfo("map-2");
+            return x + 2;
+        })
+        // observeOn生效mainThread
+        .observeOn(AndroidSchedulers.mainThread());
+
+doSubscribe(observable, integer -> printNormalThreadInfo("onNext:" + integer));

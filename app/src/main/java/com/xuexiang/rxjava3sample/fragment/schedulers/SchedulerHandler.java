@@ -15,7 +15,7 @@
  *
  */
 
-package com.xuexiang.rxjava3sample.fragment.operators.utility;
+package com.xuexiang.rxjava3sample.fragment.schedulers;
 
 import android.view.View;
 
@@ -29,26 +29,21 @@ import io.reactivex.rxjava3.core.ObservableOnSubscribe;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
- * 指定Observable自身在哪个调度器上执行
- *
- * subscribeOn()改变调用它之前，直到observeOn调用代码的线程
- * observeOn()改变调用它之后代码的线程
- *
+ * 线程调度主要是靠subscribeOn和ObserveOn来完成的
  * <p>
- * https://reactivex.io/documentation/operators/subscribeon.html
- * <p>
- * https://www.kancloud.cn/luponu/rxjava_zh/974502
- * <p>
+ * subscribeOn改变调用它之前，直到observeOn调用代码的线程
+ * observeOn改变调用它之后代码的线程
+ * <p>还不懂的话，具体参见：
  * https://reactivex.io/documentation/scheduler.html
  */
-@Page(name = "subscribeOn\n指定Observable自身在哪个调度器上执行")
-public class SubscribeOn extends AbstractRxJavaFragment {
+@Page(name = "Scheduler调度\n通过subscribeOn和subscribeOn来完成")
+public class SchedulerHandler extends AbstractRxJavaFragment {
 
     @Override
     protected String getInstruction() {
-        return "你可以使用subscribeOn操作符指定Observable在一个特定的调度器上运转。\n" +
-                "subscribeOn()改变调用它之前代码的线程。\n" +
-                "observeOn()改变调用它之后代码的线程";
+        return "使用subscribeOn和subscribeOn操作符可以实现线程的调度。\n" +
+                "* subscribeOn改变调用它之前，直到observeOn调用代码的线程。\n" +
+                "* observeOn改变调用它之后代码的线程";
     }
 
     @Override
@@ -59,19 +54,23 @@ public class SubscribeOn extends AbstractRxJavaFragment {
                     emitter.onNext("this is data:");
                     emitter.onComplete();
                 })
+                // 第一个subscribeOn直到第一个observeOn都生效 My-Scheduler-1
                 .subscribeOn(ExecutorUtils.getScheduler("My-Scheduler-1"))
+                // 第二个subscribeOn不生效
                 .subscribeOn(Schedulers.io())
+                // observeOn生效 My-Scheduler-2
+                .observeOn(ExecutorUtils.getScheduler("My-Scheduler-2"))
                 .map(x -> {
                     printWarningThreadInfo("map-1");
                     return x + 1;
                 })
-                .subscribeOn(ExecutorUtils.getScheduler("My-Scheduler-2"))
+                // 由于设置了observeOn，所以第三个subscribeOn不生效
+                .subscribeOn(ExecutorUtils.getScheduler("My-Scheduler-3"))
                 .map(x -> {
                     printWarningThreadInfo("map-2");
                     return x + 2;
                 })
-                .subscribeOn(ExecutorUtils.getScheduler("My-Scheduler-3"))
-                .doOnEach(notification -> printNormalThreadInfo(notification.toString()))
+                // observeOn生效mainThread
                 .observeOn(AndroidSchedulers.mainThread());
 
         doSubscribe(observable, integer -> printNormalThreadInfo("onNext:" + integer));
@@ -84,4 +83,5 @@ public class SubscribeOn extends AbstractRxJavaFragment {
     private void printNormalThreadInfo(String action) {
         printNormal(action + ", ThreadInfo:" + Thread.currentThread().getName());
     }
+
 }

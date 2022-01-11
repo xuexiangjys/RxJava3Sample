@@ -49,16 +49,6 @@ SerializedSubject | 线程安全的Subject，可由其他Subject调用toSerializ
 
 * Rxjava全局未处理的错误。
 
-
-类型	| 描述
-|---|---
-PublishSubject | 只能接收到订阅之后的所有数据
-BehaviorSubject | 接收到订阅前的最后一条数据和订阅后的所有数据
-AsyncSubject | 只接收到最后一条数据
-ReplaySubject | 接收订阅前和订阅后的所有数据
-SerializedSubject | 线程安全的Subject，可由其他Subject调用toSerialized转换而来
-
-
 ## 特别感谢
 
 * [RxDocs](https://github.com/mcxiaoke/RxDocs)

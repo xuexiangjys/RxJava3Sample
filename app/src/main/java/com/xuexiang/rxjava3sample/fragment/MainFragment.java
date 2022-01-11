@@ -39,6 +39,7 @@ public class MainFragment extends BaseContainerFragment implements ClickUtils.On
         return new Class[]{
                 OperatorsFragment.class,
                 SubjectsFragment.class,
+                SchedulersFragment.class,
                 PluginsFragment.class
         };
     }
