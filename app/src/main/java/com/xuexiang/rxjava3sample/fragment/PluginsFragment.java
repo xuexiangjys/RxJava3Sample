@@ -19,11 +19,13 @@ package com.xuexiang.rxjava3sample.fragment;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.rxjava3sample.fragment.plugins.HookError;
+import com.xuexiang.rxjava3sample.fragment.plugins.HookLifecycle;
+import com.xuexiang.rxjava3sample.fragment.plugins.HookScheduler;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
  * 插件，又称Hook, 可以修改Rxjava的默认行为。可使用RxJavaPlugins实现Hook功能，包括发射器的生命周期、自定义线程调度器和全局异常捕获等。
- *
+ * <p>
  * 具体参见：
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Plugins
@@ -36,6 +38,8 @@ public class PluginsFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
+                HookLifecycle.class,
+                HookScheduler.class,
                 HookError.class
         };
     }

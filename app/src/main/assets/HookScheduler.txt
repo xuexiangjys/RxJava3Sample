@@ -1,0 +1,13 @@
+// Hook IoScheduler
+RxJavaPlugins.setIoSchedulerHandler(schedulerSupplier -> {
+    printError("Hook IoScheduler!");
+    return ExecutorUtils.getIoScheduler("Custom-");
+});
+
+doSubscribe(Observable.just("1234")
+        .map(x -> {
+            String log = "thread name:" + Thread.currentThread().getName();
+            printWarning(log);
+            return Integer.parseInt(x);
+        })
+        .subscribeOn(Schedulers.io()));

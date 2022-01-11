@@ -1,0 +1,12 @@
+RxJavaPlugins.setOnObservableAssembly(observable -> {
+    printError("Hook Assembly Observable:" + StringUtils.getSimpleName(observable));
+    return observable;
+});
+
+RxJavaPlugins.setOnObservableSubscribe((source, observer) -> {
+    printError("Hook Subscribe Observable:" + StringUtils.getSimpleName(source) + ", observer:" + StringUtils.getSimpleName(observer));
+    return observer;
+});
+
+doSubscribe(Observable.range(5, 4)
+        .map(x -> x + 1));

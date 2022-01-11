@@ -37,6 +37,28 @@ SerializedSubject | 线程安全的Subject，可由其他Subject调用toSerializ
 条件和布尔类型 | [amb](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/conditional/Amb.java) 、[contains](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/conditional/Contains.java) 、[takeUntil](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/conditional/TakeUntil.java) 、[skipUntil](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/conditional/SkipUntil.java)
 算术和聚合类型 | [reduce](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/mathematical/Reduce.java) 、[max](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/mathematical/Max.java) 、[min](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/mathematical/Min.java) 、[sum](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/mathematical/Sum.java)
 
+## Plugins
+
+> 插件，又可称Hook, 可以修改Rxjava的默认行为。
+
+使用RxJavaPlugins可以进行以下三类功能的Hook和自定义：
+
+* 发射器Observable、Single、Completable和Maybe的生命周期（装载和被订阅）。
+
+* Rxjava的各类线程调度器Scheduler。
+
+* Rxjava全局未处理的错误。
+
+
+类型	| 描述
+|---|---
+PublishSubject | 只能接收到订阅之后的所有数据
+BehaviorSubject | 接收到订阅前的最后一条数据和订阅后的所有数据
+AsyncSubject | 只接收到最后一条数据
+ReplaySubject | 接收订阅前和订阅后的所有数据
+SerializedSubject | 线程安全的Subject，可由其他Subject调用toSerialized转换而来
+
+
 ## 特别感谢
 
 * [RxDocs](https://github.com/mcxiaoke/RxDocs)

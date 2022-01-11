@@ -19,6 +19,7 @@ package com.xuexiang.rxjava3sample.utils;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -30,6 +31,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * @since 2021/12/20 9:57 下午
  */
 public final class ExecutorUtils {
+
+    private static final AtomicInteger threadNumber = new AtomicInteger(1);
 
     private static final ScheduledExecutorService sSingleExecutor = Executors.newSingleThreadScheduledExecutor();
 
@@ -49,6 +52,16 @@ public final class ExecutorUtils {
      */
     public static Scheduler getScheduler(final String name) {
         return Schedulers.from(Executors.newCachedThreadPool(runnable -> new Thread(runnable, name)));
+    }
+
+    /**
+     * 用指定的名称新建一个线程
+     *
+     * @param namePrefix 线程名前缀
+     * @return Scheduler
+     */
+    public static Scheduler getIoScheduler(final String namePrefix) {
+        return Schedulers.from(Executors.newCachedThreadPool(runnable -> new Thread(runnable, namePrefix + threadNumber.getAndIncrement())));
     }
 
 }
