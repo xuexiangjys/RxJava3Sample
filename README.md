@@ -37,6 +37,18 @@ SerializedSubject | 线程安全的Subject，可由其他Subject调用toSerializ
 条件和布尔类型 | [amb](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/conditional/Amb.java) 、[contains](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/conditional/Contains.java) 、[takeUntil](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/conditional/TakeUntil.java) 、[skipUntil](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/conditional/SkipUntil.java)
 算术和聚合类型 | [reduce](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/mathematical/Reduce.java) 、[max](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/mathematical/Max.java) 、[min](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/mathematical/Min.java) 、[sum](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/operators/mathematical/Sum.java)
 
+## Scheduler
+
+类型	| 描述
+|---|---
+Schedulers.io | 缓存线程池，线程数量无穷大，用于I/O操作
+Schedulers.computation | 固定线程池，大小为CPU核数，用于CPU密集型计算（无阻塞）
+Schedulers.single | 单线程池
+Schedulers.newThread | 为指定任务启动一个新的线程
+Schedulers.trampoline | 当其它排队的任务完成后，在当前线程排队开始执行
+Schedulers.from | 使用指定的Executor作为调度器
+AndroidSchedulers.mainThread | Android的主线程，即UI线程
+
 ## Plugins
 
 > 插件，又可称Hook, 可以修改Rxjava的默认行为。

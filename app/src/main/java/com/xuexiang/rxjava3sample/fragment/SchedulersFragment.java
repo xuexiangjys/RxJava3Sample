@@ -19,6 +19,7 @@ package com.xuexiang.rxjava3sample.fragment;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.rxjava3sample.fragment.schedulers.SchedulerHandler;
+import com.xuexiang.rxjava3sample.fragment.schedulers.SchedulerType;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -26,6 +27,7 @@ import com.xuexiang.xpage.annotation.Page;
  * <p>
  * 具体参见：
  * <p>
+ * https://www.kancloud.cn/luponu/rxjava_zh/974451
  * https://reactivex.io/documentation/scheduler.html
  *
  * @author xuexiang
@@ -36,7 +38,8 @@ public class SchedulersFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
-                SchedulerHandler.class,
+                SchedulerType.class,
+                SchedulerHandler.class
         };
     }
 }

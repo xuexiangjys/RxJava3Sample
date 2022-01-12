@@ -1,0 +1,29 @@
+Observable<Integer> observable = Observable.just(1)
+        .subscribeOn(Schedulers.io())
+        .map(x -> {
+            printWarningThreadInfo("map-1");
+            return x + 1;
+        })
+        .observeOn(Schedulers.computation())
+        .map(x -> {
+            printWarningThreadInfo("map-2");
+            return x + 2;
+        })
+        .observeOn(Schedulers.newThread())
+        .map(x -> {
+            printWarningThreadInfo("map-3");
+            return x + 3;
+        })
+        .observeOn(Schedulers.single())
+        .map(x -> {
+            printWarningThreadInfo("map-4");
+            return x + 4;
+        })
+        .observeOn(Schedulers.trampoline())
+        .map(x -> {
+            printWarningThreadInfo("map-5");
+            return x + 5;
+        })
+        .observeOn(AndroidSchedulers.mainThread());
+
+doSubscribe(observable, integer -> printNormalThreadInfo("onNext:" + integer));
