@@ -28,7 +28,7 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
- * 过滤高频输出
+ * 过滤连续性的高频输出
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#throttleWithTimeout
  * <p>
@@ -39,7 +39,7 @@ public class ThrottleWithTimeout extends AbstractRxJavaFragment {
 
     @Override
     protected String getInstruction() {
-        return "throttleWithTimeout操作符会过滤掉发射速率过快的数据项。";
+        return "throttleWithTimeout操作符会过滤掉连续性发射速率过快的数据项。";
     }
 
     @Override

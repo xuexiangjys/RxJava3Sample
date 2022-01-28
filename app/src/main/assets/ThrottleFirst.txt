@@ -1,0 +1,25 @@
+// Diagram:
+// -A----B-C-------D-----E-|-->
+//  a---------1s
+//                 d-------|-->
+// -A--------------D-------|-->
+Observable<String> source = Observable.create(emitter -> {
+    emitter.onNext("A"); // A作为第一个，直接输出
+
+    Thread.sleep(500);
+    emitter.onNext("B"); // B与A间隔500ms，小于指定1000ms，所以不输出
+
+    Thread.sleep(200); // C与A间隔700ms，小于指定1000ms，所以不输出
+    emitter.onNext("C");
+
+    Thread.sleep(800); // D与A间隔1500ms，大于指定1000ms，所以输出
+    emitter.onNext("D");
+
+    Thread.sleep(600); // E与D间隔600ms，小于指定1000ms，所以不输出
+    emitter.onNext("E");
+    emitter.onComplete();
+});
+
+// 输出A、D
+setDisposable(doSubscribe(source.subscribeOn(Schedulers.io())
+        .throttleFirst(1000, TimeUnit.MILLISECONDS)));

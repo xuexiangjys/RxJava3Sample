@@ -20,6 +20,7 @@ package com.xuexiang.rxjava3sample.fragment.operators.filtering;
 import android.view.View;
 
 import com.xuexiang.rxjava3sample.core.AbstractRxJavaFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.rxbinding.InputFilteringFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 import java.util.concurrent.TimeUnit;
@@ -28,18 +29,23 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
- * 过滤高频输出
+ * 过滤连续性的高频输出
  * <p>
  * https://github.com/ReactiveX/RxJava/wiki/Filtering-Observables#debounce
  * <p>
  * https://www.kancloud.cn/luponu/rxjava_zh/974472
  */
-@Page(name = "debounce\n过滤高频输出，常用于防抖动、快速点击等场景")
+@Page(name = "debounce\n过滤高频输出，常用于键盘快速输入等场景")
 public class Debounce extends AbstractRxJavaFragment {
 
     @Override
     protected String getInstruction() {
-        return "debounce操作符会过滤掉发射速率过快的数据项。";
+        return "debounce操作符会过滤掉连续性发射速率过快的数据项。";
+    }
+
+    @Override
+    protected Class getUseCase() {
+        return InputFilteringFragment.class;
     }
 
     @Override

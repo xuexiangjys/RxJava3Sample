@@ -29,6 +29,7 @@ import com.xuexiang.rxjava3sample.fragment.operators.filtering.Skip;
 import com.xuexiang.rxjava3sample.fragment.operators.filtering.SkipLast;
 import com.xuexiang.rxjava3sample.fragment.operators.filtering.Take;
 import com.xuexiang.rxjava3sample.fragment.operators.filtering.TakeLast;
+import com.xuexiang.rxjava3sample.fragment.operators.filtering.ThrottleFirst;
 import com.xuexiang.rxjava3sample.fragment.operators.filtering.ThrottleWithTimeout;
 import com.xuexiang.xpage.annotation.Page;
 
@@ -47,6 +48,7 @@ public class FilteringFragment extends BaseContainerFragment {
                 OfType.class,
                 Debounce.class,
                 ThrottleWithTimeout.class,
+                ThrottleFirst.class,
                 Distinct.class,
                 DistinctUntilChanged.class,
                 First.class,

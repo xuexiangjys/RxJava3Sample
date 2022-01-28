@@ -29,18 +29,11 @@ import com.xuexiang.xaop.annotation.MemoryCache;
 import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xui.utils.ViewUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xutil.common.StringUtils;
+import com.xuexiang.xui.widget.textview.LoggerTextView;
 import com.xuexiang.xutil.resource.ResourceUtils;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Completable;
-import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.core.Single;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Action;
-import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
@@ -49,12 +42,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * @author xuexiang
  * @since 2022/1/9 2:00 下午
  */
-public abstract class AbstractRxJavaFragment extends BaseFragment<FragmentTemplateBinding> implements ILogPrinter {
-
-    protected Disposable disposable;
-
-    protected CompositeDisposable disposablePool;
-
+public abstract class AbstractRxJavaFragment extends LoggerFragment<FragmentTemplateBinding> {
     /**
      * 是否显示源码
      */
@@ -66,6 +54,12 @@ public abstract class AbstractRxJavaFragment extends BaseFragment<FragmentTempla
     @Override
     protected FragmentTemplateBinding viewBindingInflate(LayoutInflater inflater, ViewGroup container) {
         return FragmentTemplateBinding.inflate(inflater, container, false);
+    }
+
+    @NonNull
+    @Override
+    protected LoggerTextView getLogger() {
+        return getBinding().logger;
     }
 
     @Override
@@ -95,7 +89,19 @@ public abstract class AbstractRxJavaFragment extends BaseFragment<FragmentTempla
                 refreshCodeView(mIsShowCode);
             }
         });
+        if (getUseCase() != null) {
+            titleBar.addAction(new TitleBar.TextAction("应用") {
+                @Override
+                public void performAction(View view) {
+                    openPage(getUseCase());
+                }
+            });
+        }
         return titleBar;
+    }
+
+    protected Class getUseCase() {
+        return null;
     }
 
     private void refreshCodeView(boolean isShowCode) {
@@ -117,44 +123,6 @@ public abstract class AbstractRxJavaFragment extends BaseFragment<FragmentTempla
      */
     protected void beforeOperation() {
         clearLog();
-    }
-
-    @NonNull
-    protected <T> Disposable doSubscribe(@NonNull Observable<T> observable) {
-        return observable.subscribe(item -> printNormal(StringUtils.toString(item)), error -> printError(error.getMessage()),
-                () -> printSuccess("Completed!"));
-    }
-
-    @NonNull
-    protected <T> Disposable doSubscribe(@NonNull Observable<T> observable, @NonNull Consumer<? super T> onNext) {
-        return observable.subscribe(onNext, error -> printError(error.getMessage()),
-                () -> printSuccess("Completed!"));
-    }
-
-    @NonNull
-    protected <T> Disposable doSubscribe(@NonNull Observable<T> observable, @NonNull Consumer<? super T> onNext, @NonNull Action onComplete) {
-        return observable.subscribe(onNext, error -> printError(error.getMessage()), onComplete);
-    }
-
-    @NonNull
-    protected <T> Disposable doSingleSubscribe(@NonNull Single<T> single) {
-        return single.subscribe(item -> printNormal(StringUtils.toString(item)), error -> printError(error.getMessage()));
-    }
-
-    @NonNull
-    protected <T> Disposable doMaybeSubscribe(@NonNull Maybe<T> maybe) {
-        return maybe.subscribe(item -> printNormal(StringUtils.toString(item)), error -> printError(error.getMessage()),
-                () -> printSuccess("Completed!"));
-    }
-
-    @NonNull
-    protected Disposable doCompletableSubscribe(@NonNull Completable completable) {
-        return completable.subscribe(() -> printSuccess("Completed!"), error -> printError(error.getMessage()));
-    }
-
-    protected <T> void doSubscribe(@NonNull Observable<T> observable, @NonNull LogObserver<T> observer) {
-        observable.subscribe(observer);
-        addDisposable(observer);
     }
 
     /**
@@ -193,109 +161,11 @@ public abstract class AbstractRxJavaFragment extends BaseFragment<FragmentTempla
         return false;
     }
 
-
-    public void setDisposable(Disposable disposable) {
-        this.disposable = disposable;
-    }
-
-    protected boolean isOperationNotDisposed() {
-        return disposable != null && !disposable.isDisposed();
-    }
-
-    public void addDisposable(Disposable disposable) {
-        if (disposablePool == null) {
-            disposablePool = new CompositeDisposable();
-        }
-        disposablePool.add(disposable);
-    }
-
-    @Override
-    public void onDestroyView() {
-        cancelSubscribe();
-        cancelSubscribePool();
-        super.onDestroyView();
-    }
-
-
-    /**
-     * 取消订阅
-     */
-    protected void cancelSubscribe() {
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
-        }
-    }
-
-    /**
-     * 取消订阅池订阅
-     */
-    protected void cancelSubscribePool() {
-        if (disposablePool != null && !disposablePool.isDisposed()) {
-            disposablePool.dispose();
-        }
-    }
-
     /**
      * 获取对象的类名
      */
     public static String getSimpleName(final Object object) {
         return object != null ? object.getClass().getSimpleName() : "NULL";
-    }
-
-    /**
-     * 添加普通日志
-     *
-     * @param logContent 日志内容
-     */
-    @Override
-    public void printNormal(String logContent) {
-        getBinding().logger.logNormal(logContent);
-    }
-
-    /**
-     * 添加分割线
-     */
-    @Override
-    public void println() {
-        getBinding().logger.logNormal("------------------------------------------------------------");
-    }
-
-    /**
-     * 添加成功日志
-     *
-     * @param logContent 日志内容
-     */
-    @Override
-    public void printSuccess(String logContent) {
-        getBinding().logger.logSuccess(logContent);
-    }
-
-
-    /**
-     * 添加警告日志
-     *
-     * @param logContent 日志内容
-     */
-    @Override
-    public void printWarning(String logContent) {
-        getBinding().logger.logWarning(logContent);
-    }
-
-    /**
-     * 添加错误日志
-     *
-     * @param logContent 日志内容
-     */
-    @Override
-    public void printError(String logContent) {
-        getBinding().logger.logError(logContent);
-    }
-
-    /**
-     * 清除日志
-     */
-    public void clearLog() {
-        getBinding().logger.clearLog();
     }
 
     @MemoryCache
