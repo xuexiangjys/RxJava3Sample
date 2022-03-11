@@ -19,6 +19,7 @@ package com.xuexiang.rxjava3sample.fragment;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.rxjava3sample.fragment.usecase.RxBindingFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.RxJavaFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -33,7 +34,8 @@ public class UseCaseFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
-                RxBindingFragment.class
+                RxBindingFragment.class,
+                RxJavaFragment.class
         };
     }
 }

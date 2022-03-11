@@ -28,7 +28,7 @@ import com.xuexiang.xui.widget.textview.LoggerTextView;
 /**
  * 使用案例测试fragment
  */
-public abstract class UseCaseTestFragment extends LoggerFragment<FragmentUseCaseTestBinding> {
+public class UseCaseTestFragment extends LoggerFragment<FragmentUseCaseTestBinding> {
 
     @NonNull
     @Override
@@ -40,5 +40,15 @@ public abstract class UseCaseTestFragment extends LoggerFragment<FragmentUseCase
     @Override
     protected LoggerTextView getLogger() {
         return getBinding().logger;
+    }
+
+
+    @Override
+    protected void initViews() {
+        getBinding().btnTest.setOnClickListener(v -> onClickTest());
+    }
+
+    public void onClickTest() {
+
     }
 }

@@ -34,7 +34,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 
 /***
- * 使用debounce处理快速点击
+ * 使用debounce过滤频繁触发的事件，进行事件合并
  */
 @Page(name = "Input Filtering\n输入过滤(debounce)")
 public class InputFilteringFragment extends LoggerFragment<FragmentInputFilteringBinding> {

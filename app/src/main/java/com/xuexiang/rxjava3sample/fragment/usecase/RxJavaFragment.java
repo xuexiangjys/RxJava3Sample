@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2022 xuexiangjys(xuexiangjys@163.com)
- *   
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,26 +18,23 @@
 package com.xuexiang.rxjava3sample.fragment.usecase;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
-import com.xuexiang.rxjava3sample.fragment.usecase.rxbinding.InputFilteringFragment;
-import com.xuexiang.rxjava3sample.fragment.usecase.rxbinding.LinkageRefreshFragment;
-import com.xuexiang.rxjava3sample.fragment.usecase.rxbinding.QuickClickFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.RelatedConcurrentTaskFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.UnrelatedConcurrentTaskFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.CountDownFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.SerialTaskFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.ThreadSwitchFragment;
 import com.xuexiang.xpage.annotation.Page;
 
-/**
- * RxBinding使用案例
- *
- * @author xuexiang
- * @since 2022/1/9 1:31 上午
- */
-@Page(name = "RxBinding\nUI相关使用案例")
-public class RxBindingFragment extends BaseContainerFragment {
-
+@Page(name = "RxJava\n常见通用的使用案例")
+public class RxJavaFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[]{
-                QuickClickFragment.class,
-                InputFilteringFragment.class,
-                LinkageRefreshFragment.class
+        return new Class[] {
+                CountDownFragment.class,
+                ThreadSwitchFragment.class,
+                SerialTaskFragment.class,
+                UnrelatedConcurrentTaskFragment.class,
+                RelatedConcurrentTaskFragment.class
         };
     }
 }
