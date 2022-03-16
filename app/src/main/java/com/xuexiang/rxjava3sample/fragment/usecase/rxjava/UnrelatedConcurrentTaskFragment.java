@@ -34,6 +34,7 @@ public class UnrelatedConcurrentTaskFragment extends UseCaseTestFragment {
 
     @Override
     public void onClickTest() {
+        super.onClickTest();
         // 并行任务，每个任务独立运行，独立输出
         Observable<String> observable = task1()
                 .mergeWith(task2())

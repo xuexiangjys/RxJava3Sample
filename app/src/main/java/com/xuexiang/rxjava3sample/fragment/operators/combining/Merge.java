@@ -31,7 +31,7 @@ import io.reactivex.rxjava3.core.Observable;
  * <p>
  * https://www.kancloud.cn/luponu/rxjava_zh/974488
  */
-@Page(name = "merge\n将多个Observable合并为一个")
+@Page(name = "merge\n将多个Observable合并为一个(允许交错)")
 public class Merge extends AbstractRxJavaFragment {
 
     @Override

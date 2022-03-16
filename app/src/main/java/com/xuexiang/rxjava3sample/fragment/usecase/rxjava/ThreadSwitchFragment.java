@@ -42,6 +42,7 @@ public class ThreadSwitchFragment extends UseCaseTestFragment {
 
     @Override
     public void onClickTest() {
+        super.onClickTest();
         Observable<Integer> observable = Observable.just(1)
                 .subscribeOn(Schedulers.io())
                 .map(x -> {

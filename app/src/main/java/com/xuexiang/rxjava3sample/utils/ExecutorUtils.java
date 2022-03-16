@@ -36,12 +36,18 @@ public final class ExecutorUtils {
 
     private static final ScheduledExecutorService sSingleExecutor = Executors.newSingleThreadScheduledExecutor();
 
+    private static final ScheduledExecutorService sCacheExecutor = Executors.newScheduledThreadPool(4);
+
     private ExecutorUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
     public static ScheduledExecutorService getSingleExecutor() {
         return sSingleExecutor;
+    }
+
+    public static ScheduledExecutorService getCacheExecutor() {
+        return sCacheExecutor;
     }
 
     /**

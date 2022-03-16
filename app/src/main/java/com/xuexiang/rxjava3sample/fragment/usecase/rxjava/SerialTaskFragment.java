@@ -34,6 +34,7 @@ public class SerialTaskFragment extends UseCaseTestFragment {
 
     @Override
     public void onClickTest() {
+        super.onClickTest();
         // 串行任务，前一个任务的输出是后一个任务的输入
         Observable<String> observable = task1("开始")
                 .flatMap(this::task2)

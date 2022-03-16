@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * 有序平铺转换操作
@@ -54,7 +53,7 @@ public class ConcatMap extends AbstractRxJavaFragment {
                     printNormal("concatMap:" + x);
                     return Observable.range(x * 10, 3)
                             .map(y -> "项目" + y).delay(delay, TimeUnit.SECONDS);
-                }).subscribeOn(Schedulers.io())
+                })
                 .observeOn(AndroidSchedulers.mainThread());
         setDisposable(doSubscribe(observable));
     }

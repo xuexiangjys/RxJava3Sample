@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.rxjava3.core.Observable;
 
 /***
- * 使用zip将前后有依赖的任务并行关联起来
+ * 使用zip将前后有依赖的任务并行关联起来，合并输出
  *
  * 这里的并行任务，每个任务独立运行，统一输出（一般都是不同类输出）
  */
@@ -34,6 +34,7 @@ public class RelatedConcurrentTaskFragment extends UseCaseTestFragment {
 
     @Override
     public void onClickTest() {
+        super.onClickTest();
         // 并行任务，每个任务独立运行，统一输出
         Observable<String> observable = Observable.zip(task1(), task2(), task3(), task4(),
                 (s, s2, s3, s4) -> "开始" + s + s2 + s3 + s4)

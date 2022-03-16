@@ -15,40 +15,28 @@
  *
  */
 
-package com.xuexiang.rxjava3sample.core;
+package com.xuexiang.rxjava3sample.fragment.usecase.rxbus;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.xuexiang.rxjava3sample.databinding.FragmentUseCaseTestBinding;
-import com.xuexiang.xui.widget.textview.LoggerTextView;
+import com.xuexiang.rxjava3sample.core.BaseFragment;
+import com.xuexiang.rxjava3sample.databinding.FragmentRxbusUtilsBinding;
+import com.xuexiang.xpage.annotation.Page;
 
-/**
- * 使用案例测试fragment
- */
-public class UseCaseTestFragment extends LoggerFragment<FragmentUseCaseTestBinding> {
-
-    @NonNull
-    @Override
-    protected FragmentUseCaseTestBinding viewBindingInflate(LayoutInflater inflater, ViewGroup container) {
-        return FragmentUseCaseTestBinding.inflate(inflater, container, false);
-    }
+@Page(name = "RxBusUtils\n工具类使用")
+public class RxBusUtilsFragment extends BaseFragment<FragmentRxbusUtilsBinding> {
 
     @NonNull
     @Override
-    protected LoggerTextView getLogger() {
-        return getBinding().logger;
+    protected FragmentRxbusUtilsBinding viewBindingInflate(LayoutInflater inflater, ViewGroup container) {
+        return FragmentRxbusUtilsBinding.inflate(inflater, container, false);
     }
-
 
     @Override
     protected void initViews() {
-        getBinding().btnTest.setOnClickListener(v -> onClickTest());
-    }
 
-    public void onClickTest() {
-        clearLog();
     }
 }

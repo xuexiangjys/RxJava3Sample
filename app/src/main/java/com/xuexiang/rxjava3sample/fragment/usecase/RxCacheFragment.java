@@ -15,31 +15,20 @@
  *
  */
 
-package com.xuexiang.rxjava3sample.fragment;
+package com.xuexiang.rxjava3sample.fragment.usecase;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
-import com.xuexiang.rxjava3sample.fragment.usecase.RxBindingFragment;
-import com.xuexiang.rxjava3sample.fragment.usecase.RxBusFragment;
-import com.xuexiang.rxjava3sample.fragment.usecase.RxCacheFragment;
-import com.xuexiang.rxjava3sample.fragment.usecase.RxJavaFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.cache.CacheLoadFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.cache.CacheStrategyFragment;
 import com.xuexiang.xpage.annotation.Page;
 
-/**
- * 使用案例
- *
- * @author xuexiang
- * @since 2022/1/9 1:31 上午
- */
-@Page(name = "UseCase\n使用案例，包含一些常用的案例分析")
-public class UseCaseFragment extends BaseContainerFragment {
-
+@Page(name = "RxCache\n缓存相关的使用案例")
+public class RxCacheFragment extends BaseContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[]{
-                RxBindingFragment.class,
-                RxJavaFragment.class,
-                RxCacheFragment.class,
-                RxBusFragment.class
+        return new Class[] {
+                CacheLoadFragment.class,
+                CacheStrategyFragment.class
         };
     }
 }

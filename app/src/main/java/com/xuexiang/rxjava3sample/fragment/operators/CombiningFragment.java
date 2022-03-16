@@ -19,6 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.operators;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.rxjava3sample.fragment.operators.combining.CombineLatest;
+import com.xuexiang.rxjava3sample.fragment.operators.combining.Concat;
 import com.xuexiang.rxjava3sample.fragment.operators.combining.Merge;
 import com.xuexiang.rxjava3sample.fragment.operators.combining.StartWith;
 import com.xuexiang.rxjava3sample.fragment.operators.combining.Zip;
@@ -35,6 +36,7 @@ public class CombiningFragment extends BaseContainerFragment {
     protected Class[] getPagesClasses() {
         return new Class[]{
                 Merge.class,
+                Concat.class,
                 Zip.class,
                 CombineLatest.class,
                 StartWith.class

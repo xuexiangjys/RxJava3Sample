@@ -34,7 +34,7 @@ import com.xuexiang.xpage.annotation.Page;
  * @author xuexiang
  * @since 2022/1/9 1:32 上午
  */
-@Page(name = "operators\n操作符")
+@Page(name = "Operators\n操作符")
 public class OperatorsFragment extends BaseContainerFragment {
 
     @Override
