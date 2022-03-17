@@ -26,7 +26,13 @@ import com.xuexiang.rxjava3sample.core.BaseFragment;
 import com.xuexiang.rxjava3sample.databinding.FragmentRxbusUtilsBinding;
 import com.xuexiang.xpage.annotation.Page;
 
-@Page(name = "RxBusUtils\n工具类使用")
+/**
+ * RxBus 工具类的简单使用
+ *
+ * @author xuexiang
+ * @since 2022/3/17 9:55 下午
+ */
+@Page(name = "RxBusUtils\nRxBus工具类使用")
 public class RxBusUtilsFragment extends BaseFragment<FragmentRxbusUtilsBinding> {
 
     @NonNull

@@ -19,6 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.usecase;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.rxjava3sample.fragment.usecase.rxbus.RxBusUtilsFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.rxbus.RxSubjectFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 @Page(name = "RxBus\nRxBus使用案例")
@@ -26,7 +27,8 @@ public class RxBusFragment extends BaseContainerFragment {
 
     @Override
     protected Class[] getPagesClasses() {
-        return new Class[] {
+        return new Class[]{
+                RxSubjectFragment.class,
                 RxBusUtilsFragment.class
         };
     }

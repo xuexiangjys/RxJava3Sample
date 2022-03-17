@@ -12,6 +12,11 @@ Action action = () -> printNormal("this is a action!");
 Completable actionCompletable = Completable.fromAction(action);
 doCompletableSubscribe(actionCompletable);
 
+printNormal("====[fromCallable]====");
+Callable<String> callable = () -> "this is a callable!";
+Observable<String> callableObservable = Observable.fromCallable(callable);
+doSubscribe(callableObservable);
+
 printNormal("====[fromFuture]====");
 Future<String> future = ExecutorUtils.getSingleExecutor().schedule(() -> "Future delay one second!", 1, TimeUnit.SECONDS);
 Observable<String> futureObservable = Observable.fromFuture(future)

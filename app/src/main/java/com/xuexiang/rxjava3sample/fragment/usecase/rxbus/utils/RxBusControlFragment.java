@@ -69,7 +69,7 @@ public class RxBusControlFragment extends BaseFragment<FragmentRxbusControlBindi
         } else if (id == R.id.btn_send_nodata) {
             RxBusUtils.get().postRxEvent(EventKey.EVENT_NO_DATA);
         } else if (id == R.id.btn_back_mainthread) {
-            AppExecutors.get().poolIO().execute(() -> RxBusUtils.get().post(EventKey.EVENT_BACK_MAINTHREAD));
+            AppExecutors.get().poolIO().execute(() -> RxBusUtils.get().post(EventKey.EVENT_BACK_MAIN_THREAD));
         } else if (id == R.id.btn_back_normal) {
             AppExecutors.get().poolIO().execute(() -> RxBusUtils.get().post(EventKey.EVENT_BACK_NORMAL));
         } else if (id == R.id.btn_one_by_one) {

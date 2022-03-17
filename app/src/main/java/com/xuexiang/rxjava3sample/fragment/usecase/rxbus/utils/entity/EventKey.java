@@ -35,7 +35,7 @@ public class EventKey {
 	/**
 	 * 事件返回主线程
 	 */
-	public final static String EVENT_BACK_MAINTHREAD = "event_back_mainthread";
+	public final static String EVENT_BACK_MAIN_THREAD = "event_back_main_thread";
 	/**
 	 * 事件普通返回
 	 */

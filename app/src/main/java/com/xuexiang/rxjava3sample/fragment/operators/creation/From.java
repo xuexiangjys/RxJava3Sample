@@ -26,6 +26,7 @@ import com.xuexiang.xpage.annotation.Page;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
@@ -47,7 +48,7 @@ public class From extends AbstractRxJavaFragment {
 
     @Override
     protected String getInstruction() {
-        return "将其它种类的对象和数据类型转换为Observable, 可以是Iterable、Array、Future、Action等。";
+        return "将其它种类的对象和数据类型转换为Observable, 可以是Iterable、Array、Future、Action、Callable等。";
     }
 
     @Override
@@ -65,6 +66,11 @@ public class From extends AbstractRxJavaFragment {
         Action action = () -> printNormal("this is a action!");
         Completable actionCompletable = Completable.fromAction(action);
         doCompletableSubscribe(actionCompletable);
+
+        printNormal("====[fromCallable]====");
+        Callable<String> callable = () -> "this is a callable!";
+        Observable<String> callableObservable = Observable.fromCallable(callable);
+        doSubscribe(callableObservable);
 
         printNormal("====[fromFuture]====");
         Future<String> future = ExecutorUtils.getSingleExecutor().schedule(() -> "Future delay one second!", 1, TimeUnit.SECONDS);

@@ -37,7 +37,7 @@ public class RxBusTestFragment3 extends BaseRxBusTestFragment {
         super.initViews();
         setBackgroundColor(android.R.color.holo_orange_light);
 
-        RxBusUtils.get().onMainThread(EventKey.EVENT_BACK_MAINTHREAD, String.class, eventName -> showContent(EventKey.EVENT_BACK_MAINTHREAD, "   EventName:" + eventName + ", 当前线程状态： " + Event.getLooperStatus()));
+        RxBusUtils.get().onMainThread(EventKey.EVENT_BACK_MAIN_THREAD, String.class, eventName -> showContent(EventKey.EVENT_BACK_MAIN_THREAD, "   EventName:" + eventName + ", 当前线程状态： " + Event.getLooperStatus()));
         mOneByMore = RxBusUtils.get().onMainThread(EventKey.EVENT_ONE_BY_MORE, String.class, new Consumer<String>() {
             @Override
             public void accept(String eventName) throws Exception {
@@ -48,7 +48,7 @@ public class RxBusTestFragment3 extends BaseRxBusTestFragment {
 
     @Override
     protected void onCancelEvent() {
-        RxBusUtils.get().unregisterAll(EventKey.EVENT_BACK_MAINTHREAD);
+        RxBusUtils.get().unregisterAll(EventKey.EVENT_BACK_MAIN_THREAD);
         RxBusUtils.get().unregister(EventKey.EVENT_ONE_BY_MORE, mOneByMore);
         RxBusUtils.get().unregister(EventKey.EVENT_CLEAR, mSubscribeInfo);
     }
