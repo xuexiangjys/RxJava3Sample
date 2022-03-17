@@ -19,6 +19,7 @@ package com.xuexiang.rxjava3sample.fragment.usecase;
 
 import com.xuexiang.rxjava3sample.core.BaseContainerFragment;
 import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.RelatedConcurrentTaskFragment;
+import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.SchedulerDirectFragment;
 import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.UnrelatedConcurrentTaskFragment;
 import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.CountDownFragment;
 import com.xuexiang.rxjava3sample.fragment.usecase.rxjava.SerialTaskFragment;
@@ -34,7 +35,8 @@ public class RxJavaFragment extends BaseContainerFragment {
                 ThreadSwitchFragment.class,
                 SerialTaskFragment.class,
                 UnrelatedConcurrentTaskFragment.class,
-                RelatedConcurrentTaskFragment.class
+                RelatedConcurrentTaskFragment.class,
+                SchedulerDirectFragment.class
         };
     }
 }

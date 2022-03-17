@@ -50,5 +50,6 @@ public class UseCaseTestFragment extends LoggerFragment<FragmentUseCaseTestBindi
 
     public void onClickTest() {
         clearLog();
+        cancelSubscribe();
     }
 }
