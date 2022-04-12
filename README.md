@@ -71,7 +71,29 @@ AndroidSchedulers.mainThread | Android的主线程，即UI线程
 
 * Rxjava全局未处理的错误。
 
-## Plugins
+## 使用案例
+
+* [UI相关使用案例](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxbinding)
+    * [快速点击](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxbinding/QuickClickFragment.java)
+    * [输入过滤](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxbinding/InputFilteringFragment.java)
+    * [联动刷新](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxbinding/LinkageRefreshFragment.java)
+
+* [常见通用使用案例](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxjava)
+    * [倒计时](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxjava/CountDownFragment.java)
+    * [线程切换](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxjava/ThreadSwitchFragment.java)
+    * [串行任务](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxjava/SerialTaskFragment.java)
+    * [无关联的并行任务](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxjava/UnrelatedConcurrentTaskFragment.java)
+    * [有关联的并行任务](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxjava/RelatedConcurrentTaskFragment.java)
+    * [直接执行线程任务](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxjava/SchedulerDirectFragment.java)
+
+* [缓存相关使用案例](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/cache)
+    * [缓存加载检测](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/cache/CacheLoadFragment.java)
+    * [缓存加载策略](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/cache/CacheStrategyFragment.java)
+
+* [RxBus使用案例](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxbus)
+    * [通过Subject实现RxBus的功能](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxbus/RxSubjectFragment.java)
+    * [RxBus工具类使用](https://github.com/xuexiangjys/RxJava3Sample/blob/master/app/src/main/java/com/xuexiang/rxjava3sample/fragment/usecase/rxbus/RxBusUtilsFragment.java)
+
 
 ## 特别感谢
 
