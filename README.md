@@ -71,6 +71,8 @@ AndroidSchedulers.mainThread | Android的主线程，即UI线程
 
 * Rxjava全局未处理的错误。
 
+## Plugins
+
 ## 特别感谢
 
 * [RxDocs](https://github.com/mcxiaoke/RxDocs)
